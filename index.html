@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHY 1E2 Electronics Literacy: Exam Prep</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--ink:#1d2433;--mute:#5d6678;--line:#e2e6ef;--acc:#2f5bea;--acc2:#e8eeff;--ok:#1a8a4a;--okb:#e6f6ec;--bad:#c62f2f;--badb:#fdeaea;--warn:#a86a00;--warnb:#fff4dc}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:#141b2d;color:#fff;padding:14px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;position:sticky;top:0;z-index:10}
+header h1{font-size:18px;margin:0;font-weight:650;letter-spacing:.2px}
+header h1 small{color:#9fb0d8;font-weight:400;margin-left:8px;font-size:13px}
+nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+nav button{background:transparent;border:1px solid #33405e;color:#cdd6ef;padding:7px 13px;border-radius:8px;cursor:pointer;font:inherit;font-size:14px}
+nav button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+main{max-width:1100px;margin:0 auto;padding:22px 18px 80px}
+.tab{display:none}.tab.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:16px}
+h2{font-size:20px;margin:0 0 10px}h3{font-size:16px;margin:16px 0 6px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;cursor:pointer;font-size:13px;user-select:none}
+.chip.on{background:var(--acc2);border-color:var(--acc);color:var(--acc);font-weight:600}
+.btn{background:var(--acc);color:#fff;border:0;border-radius:8px;padding:9px 16px;font:inherit;font-weight:600;cursor:pointer}
+.btn.sec{background:#fff;color:var(--acc);border:1px solid var(--acc)}
+.btn.ghost{background:#eef1f7;color:var(--ink)}
+.btn:disabled{opacity:.5;cursor:default}
+.tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:999px;background:var(--acc2);color:var(--acc);font-weight:600;margin-right:6px}
+.tag.m{background:#f1f2f6;color:var(--mute)}
+.q-stem{margin:10px 0 6px}
+.part{border-top:1px dashed var(--line);padding:10px 0}
+.part:first-of-type{border-top:0}
+.part .pq{display:flex;justify-content:space-between;gap:12px}
+.part .mk{color:var(--mute);font-size:13px;white-space:nowrap}
+.opts label{display:flex;gap:8px;align-items:flex-start;padding:6px 10px;border:1px solid var(--line);border-radius:8px;margin:5px 0;cursor:pointer;background:#fff}
+.opts label:hover{border-color:#b8c4e6}
+.opts label.ok{background:var(--okb);border-color:var(--ok)}
+.opts label.bad{background:var(--badb);border-color:var(--bad)}
+.opts input{margin-top:4px}
+input.num{font:inherit;padding:7px 10px;border:1px solid #c9d0de;border-radius:7px;width:200px}
+input.num.ok{border-color:var(--ok);background:var(--okb)}input.num.bad{border-color:var(--bad);background:var(--badb)}
+.unit{color:var(--mute);margin-left:6px}
+.fb{font-size:13.5px;margin-top:6px}
+.fb.ok{color:var(--ok)}.fb.bad{color:var(--bad)}
+.sol{background:#fbfaf5;border:1px solid #ece6cf;border-radius:10px;padding:12px 16px;margin-top:12px;display:none}
+.sol.on{display:block}
+.sol h4{margin:0 0 6px;font-size:14px;color:var(--warn)}
+.sol ol{margin:4px 0;padding-left:20px}.sol li{margin:3px 0}
+.ov{text-decoration:overline}
+svg.ckt{display:block;margin:8px 0;max-width:100%;height:auto}
+svg.ckt line,svg.ckt polyline,svg.ckt path,svg.ckt polygon,svg.ckt circle.o{stroke:#1d2433;stroke-width:1.6;fill:none}
+svg.ckt circle.f{fill:#1d2433}svg.ckt circle.o{fill:#fff}
+svg.ckt text{font:12px "Segoe UI",sans-serif;fill:#1d2433}
+table.tt{border-collapse:collapse;margin:8px 0}table.tt td,table.tt th{border:1px solid #c9d0de;padding:3px 12px;text-align:center}
+table.tt th{background:#f1f3f9}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:800px){.grid2{grid-template-columns:1fr}}
+.stat{font-size:28px;font-weight:700}.statl{color:var(--mute);font-size:13px}
+.bar{height:10px;background:#eef1f7;border-radius:6px;overflow:hidden}.bar>div{height:100%;background:var(--acc)}
+.formula td{padding:5px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.formula td:first-child{color:var(--mute);white-space:nowrap}
+.note{background:var(--warnb);border:1px solid #f0d9a6;border-radius:10px;padding:10px 14px;font-size:14px}
+.timer{font-variant-numeric:tabular-nums;font-weight:700;font-size:18px}
+.sticky{position:sticky;top:64px;z-index:5}
+.pp-q{border-left:3px solid var(--acc);padding-left:12px;margin:14px 0}
+.small{font-size:13px;color:var(--mute)}
+kbd{background:#eef1f7;border:1px solid #d4d9e6;border-radius:4px;padding:0 5px;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>PHY 1E2 · Electronics Literacy <small>Theory exam prep</small></h1>
+  <nav id="nav">
+    <button data-t="practice" class="on">Practice</button>
+    <button data-t="mock">Mock Exam</button>
+    <button data-t="papers">Past Paper Memos</button>
+    <button data-t="formulas">Formula Sheet &amp; Rules</button>
+    <button data-t="progress">My Progress</button>
+  </nav>
+</header>
+<main>
+
+<!-- PRACTICE -->
+<section id="practice" class="tab on">
+  <div class="card">
+    <h2>Practice</h2>
+    <p class="small" style="margin-top:0">Calculation questions are <b>randomly generated</b>, so you never run out: every click of <i>Next</i> gives new values. Concept questions come from a bank of 170+ exam-style MCQs. Numeric answers are accepted within ±2%. Use <b>course conventions</b>: Si diode 0.7 V, LED 2.0 V, V<sub>BE</sub> 0.7 V, saturation when V<sub>CE</sub> &lt; 0.2 V.</p>
+    <div class="row" id="topicChips"></div>
+    <div class="row" style="margin-top:10px">
+      <span class="small">Question type:</span>
+      <span class="chip on" data-src="calc">Calculations (generated)</span>
+      <span class="chip on" data-src="concept">Concept MCQs</span>
+      <span style="flex:1"></span>
+      <span class="small" id="sessScore">Session: 0 / 0</span>
+    </div>
+  </div>
+  <div id="pq"></div>
+  <div class="row"><button class="btn" id="nextBtn">Next question →</button><span class="small">Tip: press <kbd>Enter</kbd> to check, <kbd>N</kbd> for next.</span></div>
+</section>
+
+<!-- MOCK -->
+<section id="mock" class="tab">
+  <div class="card" id="mockIntro">
+    <h2>Full Mock Exam: 200 marks, 2 hours</h2>
+    <p>Built the same way as the November papers: <b>Question 1: 20 multiple-choice questions × 4 marks = 80</b>, then <b>long questions worth about 120 marks</b>: diode circuit, RCL circuit, transistor amplifier, op-amp, Boolean logic, number systems, and ADC/DAC. Every mock is newly generated, so you can sit as many as you like.</p>
+    <p class="small">Work on paper with a calculator exactly as you would in the exam, then type in your final answers. Everything is auto-marked when you submit, and full memos appear.</p>
+    <button class="btn" id="startMock">Start a new mock exam</button>
+  </div>
+  <div id="mockBody"></div>
+</section>
+
+<!-- PAST PAPERS -->
+<section id="papers" class="tab"><div id="ppBody"></div></section>
+
+<!-- FORMULAS -->
+<section id="formulas" class="tab"><div id="fBody"></div></section>
+
+<!-- PROGRESS -->
+<section id="progress" class="tab"><div id="progBody"></div></section>
+
+</main>
+<script>
+/* ===================== UTILITIES ===================== */
+const R=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const E12=[1.0,1.2,1.5,1.8,2.2,2.7,3.3,3.9,4.7,5.6,6.8,8.2];
+const fmt=(x,s=3)=>{if(!isFinite(x))return String(x);if(x===0)return'0';return String(parseFloat(x.toPrecision(s)))};
+function eng(x,unit='',s=3){if(x===0)return'0 '+unit;const ax=Math.abs(x);const P=[[1e9,'G'],[1e6,'M'],[1e3,'k'],[1,''],[1e-3,'m'],[1e-6,'µ'],[1e-9,'n'],[1e-12,'p']];for(const[f,p]of P){if(ax>=f*0.9995)return fmt(x/f,s)+' '+p+unit}return fmt(x/1e-12,s)+' p'+unit}
+const rv=(lo=2,hi=3)=>parseFloat((pick(E12)*Math.pow(10,R(lo,hi))).toPrecision(2));
+const par=(a,b)=>a*b/(a+b);
+const o=s=>`<span class="ov">${s}</span>`;
+const PI2=2*Math.PI;
+const bin=(n,w=8)=>n.toString(2).padStart(w,'0').replace(/(.{4})(?=.)/g,'$1 ');
+const steps=a=>'<ol>'+a.map(s=>'<li>'+s+'</li>').join('')+'</ol>';
+
+const TOPICS={basics:'DC basics & resistors',ac:'AC, C & L',diodes:'Diodes & LEDs',transistors:'Transistors & amplifiers',filters:'Filters & impedance',opamps:'Op-amps',numbers:'Number systems',logic:'Logic & Boolean',sequential:'Flip-flops, counters, timers',conversion:'DAC / ADC',comms:'Data transmission'};
+
+/* part builders */
+function num(q,ans,unit,marks=3,tol=0.02){return{q,kind:'num',ans,unit,marks,tol}}
+function txt(q,ans,kind,marks=3){return{q,kind,ans,marks}} // kind: bin|hex|oct|bcd
+function mc(q,correct,distract,marks=4){const all=[correct];for(const d of distract){if(d!==undefined&&!all.includes(d))all.push(d)}const opts=shuffle(all);return{q,kind:'mcq',opts,ans:opts.indexOf(correct),marks}}
+
+/* ===================== SVG CIRCUIT KIT ===================== */
+const K={
+ w:(a,b,c,d)=>`<line x1="${a}" y1="${b}" x2="${c}" y2="${d}"/>`,
+ t:(x,y,s,a='start')=>`<text x="${x}" y="${y}" text-anchor="${a}">${s}</text>`,
+ dot:(x,y)=>`<circle class="f" cx="${x}" cy="${y}" r="3"/>`,
+ term:(x,y)=>`<circle class="o" cx="${x}" cy="${y}" r="3.5"/>`,
+ rV(x,y1,y2,l,side='r'){const m=(y1+y2)/2;let p=[];for(let k=0;k<=7;k++){const xx=k===0||k===7?x:x+(k%2?7:-7);p.push(xx+','+(m-20+k*40/7))}return K.w(x,y1,x,m-20)+`<polyline points="${p.join(' ')}"/>`+K.w(x,m+20,x,y2)+(l?K.t(side==='r'?x+12:x-12,m+4,l,side==='r'?'start':'end'):'')},
+ rH(x1,x2,y,l){const m=(x1+x2)/2;let p=[];for(let k=0;k<=7;k++){const yy=k===0||k===7?y:y+(k%2?-7:7);p.push((m-20+k*40/7)+','+yy)}return K.w(x1,y,m-20,y)+`<polyline points="${p.join(' ')}"/>`+K.w(m+20,y,x2,y)+(l?K.t(m,y-12,l,'middle'):'')},
+ cV(x,y1,y2,l,side='r'){const m=(y1+y2)/2;return K.w(x,y1,x,m-4)+K.w(x-12,m-4,x+12,m-4)+K.w(x-12,m+4,x+12,m+4)+K.w(x,m+4,x,y2)+(l?K.t(side==='r'?x+16:x-16,m+4,l,side==='r'?'start':'end'):'')},
+ cH(x1,x2,y,l){const m=(x1+x2)/2;return K.w(x1,y,m-4,y)+K.w(m-4,y-12,m-4,y+12)+K.w(m+4,y-12,m+4,y+12)+K.w(m+4,y,x2,y)+(l?K.t(m,y-16,l,'middle'):'')},
+ lH(x1,x2,y,l){const m=(x1+x2)/2;return K.w(x1,y,m-20,y)+`<path d="M${m-20} ${y} a5 5 0 0 1 10 0 a5 5 0 0 1 10 0 a5 5 0 0 1 10 0 a5 5 0 0 1 10 0"/>`+K.w(m+20,y,x2,y)+(l?K.t(m,y-12,l,'middle'):'')},
+ lV(x,y1,y2,l){const m=(y1+y2)/2;return K.w(x,y1,x,m-20)+`<path d="M${x} ${m-20} a5 5 0 0 1 0 10 a5 5 0 0 1 0 10 a5 5 0 0 1 0 10 a5 5 0 0 1 0 10"/>`+K.w(x,m+20,x,y2)+(l?K.t(x+12,m+4,l):'')},
+ gnd:(x,y)=>K.w(x-10,y,x+10,y)+K.w(x-6,y+4,x+6,y+4)+K.w(x-2,y+8,x+2,y+8),
+ dV(x,y1,y2,l,led){const m=(y1+y2)/2;let s=K.w(x,y1,x,m-7)+`<polygon points="${x-8},${m-7} ${x+8},${m-7} ${x},${m+6}"/>`+K.w(x-8,m+6,x+8,m+6)+K.w(x,m+6,x,y2);if(led)s+=`<line x1="${x+10}" y1="${m-2}" x2="${x+19}" y2="${m-10}" marker-end="url(#ar)"/><line x1="${x+10}" y1="${m+5}" x2="${x+19}" y2="${m-3}" marker-end="url(#ar)"/>`;if(l)s+=K.t(x+(led?24:12),m+4,l);return s},
+ npn(cx,cy){return`<circle class="o" cx="${cx}" cy="${cy}" r="18"/>`+`<line x1="${cx-6}" y1="${cy-11}" x2="${cx-6}" y2="${cy+11}" style="stroke-width:2.6"/>`+K.w(cx-28,cy,cx-6,cy)+K.w(cx-6,cy-5,cx+8,cy-14)+K.w(cx+8,cy-14,cx+8,cy-28)+`<line x1="${cx-6}" y1="${cy+5}" x2="${cx+8}" y2="${cy+14}" marker-end="url(#ar)"/>`+K.w(cx+8,cy+14,cx+8,cy+28)},
+ opamp(x,y,top='+'){const bot=top==='+'?'−':'+';return`<polygon points="${x},${y-30} ${x},${y+30} ${x+60},${y}"/>`+K.t(x+5,y-10,top)+K.t(x+5,y+20,bot)},
+ src(x,y){return`<circle class="o" cx="${x}" cy="${y}" r="14"/><path d="M${x-8} ${y} q4 -9 8 0 q4 9 8 0"/>`},
+ svg(w,h,b){return`<svg class="ckt" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}"><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" style="fill:#1d2433;stroke:none"/></marker></defs>${b}</svg>`}
+};
+const CK={
+ pot(Vs,Rt,P,Rb){return K.svg(220,240,K.term(60,15)+K.t(70,19,Vs+' V')+K.rV(60,15,80,Rt)+K.rV(60,80,150,P+' (pot)')+`<line x1="120" y1="115" x2="70" y2="115" marker-end="url(#ar)"/>`+K.t(124,119,'V<tspan font-size="9">out</tspan>')+K.rV(60,150,210,Rb)+K.gnd(60,210))},
+ div(Vs,R1,R2,RL){return K.svg(240,230,K.term(60,15)+K.t(70,19,Vs+' V')+K.rV(60,15,100,'R1 = '+R1)+K.dot(60,100)+K.w(60,100,170,100)+K.term(170,100)+K.t(176,104,'V<tspan font-size="9">out</tspan>')+K.rV(60,100,190,'R2 = '+R2)+(RL?K.dot(60,190)+K.dot(60,100)+K.w(120,100,120,110)+K.rV(120,110,190,'R<tspan font-size="9">L</tspan> = '+RL)+K.w(60,190,120,190):'')+K.gnd(60,190))},
+ sw(Vs,RB,RC,b){return K.svg(260,210,K.term(50,20)+K.t(30,16,Vs+' V')+K.w(50,20,178,20)+K.rV(70,20,130,RB,'l')+K.w(70,130,142,130)+K.rV(178,20,102,RC)+K.npn(170,130)+K.t(200,140,'β = '+b)+K.w(178,158,178,180)+K.gnd(178,180))},
+ ce(Vcc,R1,R2,RB,RC,b){return K.svg(300,265,K.term(100,20)+K.t(90,16,Vcc+' V','end')+K.w(100,20,208,20)+K.rV(100,20,130,R1,'l')+K.rV(100,130,240,R2,'l')+K.gnd(100,240)+K.dot(100,130)+K.term(20,130)+K.t(14,120,'V<tspan font-size="9">in</tspan>')+K.w(20,130,40,130)+K.cH(40,80,130)+K.w(80,130,100,130)+K.rH(100,172,130,RB)+K.npn(200,130)+K.rV(208,20,102,RC)+K.dot(208,102)+K.w(208,102,255,102)+K.term(255,102)+K.t(262,106,'V<tspan font-size="9">out</tspan>')+K.t(226,145,'β='+b)+K.w(208,158,208,240)+K.gnd(208,240))},
+ stab(Vcc,R1,R2,RC,RE,b){return K.svg(300,280,K.term(100,20)+K.t(90,16,Vcc+' V','end')+K.w(100,20,208,20)+K.rV(100,20,130,R1,'l')+K.rV(100,130,250,R2,'l')+K.gnd(100,250)+K.dot(100,130)+K.term(20,130)+K.t(14,120,'V<tspan font-size="9">in</tspan>')+K.w(20,130,40,130)+K.cH(40,80,130)+K.w(80,130,172,130)+K.npn(200,130)+K.rV(208,20,102,RC)+K.dot(208,102)+K.w(208,102,255,102)+K.term(255,102)+K.t(262,106,'V<tspan font-size="9">out</tspan>')+K.t(226,128,'β='+b)+K.rV(208,158,250,RE)+K.gnd(208,250))},
+ ef(Vcc,R1,R2,RE){return K.svg(300,280,K.term(100,20)+K.t(90,16,Vcc+' V','end')+K.w(100,20,208,20)+K.rV(100,20,130,R1,'l')+K.rV(100,130,250,R2,'l')+K.gnd(100,250)+K.dot(100,130)+K.term(20,130)+K.t(14,120,'V<tspan font-size="9">in</tspan>')+K.w(20,130,40,130)+K.cH(40,80,130)+K.w(80,130,172,130)+K.npn(200,130)+K.w(208,102,208,20)+K.dot(208,166)+K.w(208,166,255,166)+K.term(255,166)+K.t(262,170,'V<tspan font-size="9">out</tspan>')+K.rV(208,158,250,RE)+K.gnd(208,250))},
+ nonInv(Rf,Rg,sup){return K.svg(300,270,K.opamp(120,80,'+')+K.term(30,65)+K.t(22,58,'V<tspan font-size="9">in</tspan>')+K.w(30,65,120,65)+K.w(180,80,250,80)+K.term(250,80)+K.t(256,84,'V<tspan font-size="9">out</tspan>')+K.dot(215,80)+K.rV(215,80,170,Rf)+K.dot(215,170)+K.rV(215,170,245,Rg)+K.gnd(215,245)+K.w(215,170,100,170)+K.w(100,170,100,95)+K.w(100,95,120,95)+K.t(150,35,'±'+sup+' V supplies','middle'))},
+ inv(Rin,Rf,sup){return K.svg(300,170,K.opamp(130,95,'−')+K.term(15,80)+K.t(10,72,'V<tspan font-size="9">in</tspan>')+K.rH(15,95,80,Rin)+K.w(95,80,130,80)+K.dot(100,80)+K.w(100,80,100,30)+K.rH(100,215,30,Rf)+K.w(215,30,215,95)+K.w(130,110,112,110)+K.w(112,110,112,130)+K.gnd(112,130)+K.w(190,95,255,95)+K.dot(215,95)+K.term(255,95)+K.t(260,99,'V<tspan font-size="9">out</tspan>')+K.t(160,150,'±'+sup+' V supplies','middle'))},
+ rlc(R,C,L,f){return K.svg(300,200,'<g transform="translate(40,0)">'+K.src(30,100)+K.t(10,104,f,'end')+K.w(30,30,30,86)+K.w(30,114,30,170)+K.rH(30,150,30,R)+K.w(150,30,220,30)+K.cV(220,30,170,C)+(L?K.lH(30,220,170,L):K.w(30,170,220,170))+'</g>')},
+ dA(Vs,R1,R2,R3){return K.svg(240,285,K.term(110,12)+K.t(120,16,Vs+' V')+K.w(110,12,110,30)+K.w(70,30,150,30)+K.rV(70,30,100,R1,'l')+K.dV(150,30,100,'')+K.w(70,100,150,100)+K.w(110,100,110,120)+K.w(70,120,150,120)+K.rV(70,120,190,R2,'l')+K.dV(150,120,190,'LED',true)+K.w(70,190,150,190)+K.rV(110,190,260,R3)+K.gnd(110,260))},
+ dB(Vs,R1,R2){return K.svg(240,200,K.term(110,12)+K.t(120,16,Vs+' V')+K.dV(110,12,80,'Si diode')+K.dot(110,80)+K.w(70,80,150,80)+K.rV(70,80,165,R1,'l')+K.rV(150,80,165,R2)+K.w(70,165,150,165)+K.w(110,165,110,175)+K.gnd(110,175))},
+ filt(type,comp,Rs,Xs){let ser,sh;if(comp==='RC'){ser=type==='HP'?K.cH(30,140,60,Xs):K.rH(30,140,60,Rs);sh=type==='HP'?K.rV(160,60,150,Rs):K.cV(160,60,150,Xs)}else{ser=type==='HP'?K.rH(30,140,60,Rs):K.lH(30,140,60,Xs);sh=type==='HP'?K.lV(160,60,150,Xs):K.rV(160,60,150,Rs)}return K.svg(280,175,K.term(30,60)+K.t(24,52,'V<tspan font-size="9">in</tspan>','end')+ser+K.dot(160,60)+K.w(140,60,235,60)+K.term(235,60)+K.t(241,64,'V<tspan font-size="9">out</tspan>')+sh+K.gnd(160,150))}
+};
+function truthTable(cols,rows){return'<table class="tt"><tr>'+cols.map(c=>'<th>'+c+'</th>').join('')+'</tr>'+rows.map(r=>'<tr>'+r.map(v=>'<td>'+v+'</td>').join('')+'</tr>').join('')+'</table>'}
+
+/* ===================== GENERATORS ===================== */
+const COL=['Black','Brown','Red','Orange','Yellow','Green','Blue','Violet','Grey','White'];
+const multName=m=>m===-1?'Gold':m===-2?'Silver':COL[m];
+const G={};
+
+G.colour=()=>{
+ const five=Math.random()<0.5;let d,m,tolC,tolS;
+ if(five){d=[R(1,9),R(0,9),R(0,9)];m=R(-1,4);tolC='Brown';tolS='1%'}else{d=[R(1,9),R(0,9)];m=R(-1,5);[tolC,tolS]=pick([['Gold','5%'],['Silver','10%'],['Red','2%']])}
+ const val=parseFloat((+d.join('')*Math.pow(10,m)).toPrecision(6));
+ const code=(dd,mm,t)=>[...dd.map(x=>COL[x]),multName(mm),t].join(' ');
+ const corr=code(d,m,tolC);
+ const sw=d.slice();[sw[0],sw[1]]=[sw[1],sw[0]];
+ const dis=[code(d,m+1,tolC),m-1>=-2?code(d,m-1,tolC):code(d,m+2,tolC),sw[0]!==0&&sw.join('')!==d.join('')?code(sw,m,tolC):code(d,m,tolC==='Brown'?'Gold':'Brown'),code(d,m,tolC==='Brown'?'Gold':'Brown')];
+ if(Math.random()<0.5){
+  return{topic:'basics',title:'Resistor colour code',stem:`What is the colour code for a <b>${eng(val,'Ω',d.length)} ${tolS}</b> resistor?`,parts:[mc('',corr,dis)],sol:steps([`${tolS} tolerance → ${five?'5-band precision code (3 significant digits) with a Brown tolerance band':'4-band code (2 significant digits)'}.`,`Value ${eng(val,'Ω',d.length)} = ${d.join('')} × 10<sup>${m}</sup> Ω.`,`Digits ${d.join(', ')} → ${d.map(x=>COL[x]).join(', ')}; multiplier 10<sup>${m}</sup> → ${multName(m)}; tolerance ${tolS} → ${tolC}.`,`<b>${corr}</b>`])}
+ }
+ const vd=[val,val*10,val/10,+(sw.join(''))*Math.pow(10,m)].map(v=>eng(parseFloat(v.toPrecision(6)),'Ω',d.length)+' '+tolS);
+ return{topic:'basics',title:'Read a resistor',stem:`A resistor has the bands <b>${corr}</b>. What is its value?`,parts:[mc('',vd[0],[vd[1],vd[2],vd[3],eng(val,'Ω',d.length)+' '+(tolS==='5%'?'10%':'5%')])],sol:steps([`Significant digits: ${d.join('')}.`,`Multiplier ${multName(m)} = 10<sup>${m}</sup>.`,`${d.join('')} × 10<sup>${m}</sup> = <b>${vd[0]}</b>.`])}
+};
+
+G.seriesPar=()=>{
+ const r1=rv(),r2=rv(),r3=rv(),Vs=pick([5,6,9,10,12]);
+ if(Math.random()<0.5){const rp=par(r2,r3),Req=r1+rp,It=Vs/Req,Vp=It*rp,I2=Vp/r2,I3=Vp/r3;
+  return{topic:'basics',title:'Series–parallel network',stem:`A ${Vs} V supply drives R1 = ${eng(r1,'Ω')} in <b>series</b> with (R2 = ${eng(r2,'Ω')} <b>in parallel with</b> R3 = ${eng(r3,'Ω')}).`,parts:[num('Equivalent resistance seen by the supply (kΩ)',Req/1e3,'kΩ'),num('Total supply current (mA)',It*1e3,'mA'),num('Current through R2 (mA)',I2*1e3,'mA'),num('Current through R3 (mA)',I3*1e3,'mA')],
+  sol:steps([`R2 ∥ R3 = (R2·R3)/(R2+R3) = ${eng(rp,'Ω')}`,`R<sub>eq</sub> = R1 + R2∥R3 = ${eng(Req,'Ω',4)}`,`I = V/R<sub>eq</sub> = ${Vs}/${fmt(Req,4)} = ${eng(It,'A')}`,`Voltage across the parallel pair = I × ${eng(rp,'Ω')} = ${fmt(Vp)} V`,`I<sub>R2</sub> = ${fmt(Vp)}/${fmt(r2)} = ${eng(I2,'A')}; I<sub>R3</sub> = ${eng(I3,'A')} (check: they add to ${eng(It,'A')} by KCL).`])}}
+ const Req=par(r1+r2,r3),It=Vs/Req,I12=Vs/(r1+r2),V2=I12*r2;
+ return{topic:'basics',title:'Series–parallel network',stem:`A ${Vs} V supply is connected across (R1 = ${eng(r1,'Ω')} in series with R2 = ${eng(r2,'Ω')}), and that branch is <b>in parallel</b> with R3 = ${eng(r3,'Ω')}.`,parts:[num('Equivalent resistance (kΩ)',Req/1e3,'kΩ'),num('Total supply current (mA)',It*1e3,'mA'),num('Voltage across R2 (V)',V2,'V')],
+ sol:steps([`Series branch: R1 + R2 = ${eng(r1+r2,'Ω')}`,`R<sub>eq</sub> = (R1+R2)∥R3 = ${eng(Req,'Ω',4)}`,`I = ${Vs}/${fmt(Req,4)} = ${eng(It,'A')}`,`Branch current I<sub>12</sub> = ${Vs}/${fmt(r1+r2)} = ${eng(I12,'A')} → V<sub>R2</sub> = I<sub>12</sub>·R2 = ${fmt(V2)} V (or use a potential divider: ${Vs}·R2/(R1+R2)).`])}
+};
+
+G.caps=()=>{
+ const cs=[1,2.2,4.7,10,0.47,1.5,3.3,6.8];const c1=pick(cs),c2=pick(cs),c3=pick(cs),V=pick([5,9,10,12]);
+ if(Math.random()<0.5){const cp=c2+c3,Ceq=c1*cp/(c1+cp),Q=Ceq*V;
+  return{topic:'ac',title:'Capacitor network',stem:`C1 = ${c1} µF is in <b>series</b> with (C2 = ${c2} µF <b>in parallel with</b> C3 = ${c3} µF). A ${V} V DC supply is connected across the combination.`,parts:[num('Equivalent capacitance (µF)',Ceq,'µF'),num('Charge stored on C1 (µC)',Q,'µC'),num('Voltage across C1 (V)',Q/c1,'V')],
+  sol:steps([`Capacitors in parallel ADD: C2 + C3 = ${fmt(cp)} µF`,`Series capacitors combine like parallel resistors: C<sub>eq</sub> = (C1·${fmt(cp)})/(C1+${fmt(cp)}) = ${fmt(Ceq)} µF`,`Series elements carry the same charge: Q = C<sub>eq</sub>V = ${fmt(Ceq)} × ${V} = ${fmt(Q)} µC`,`V<sub>C1</sub> = Q/C1 = ${fmt(Q)}/${c1} = ${fmt(Q/c1)} V`])}}
+ const n=R(2,4);const Ceq=c1/n;
+ return{topic:'ac',title:'Capacitor network',stem:`${n} identical ${c1} µF capacitors are connected in series. What is the equivalent capacitance? And how much energy does the combination store at ${V} V?`,parts:[num('C<sub>eq</sub> (µF)',Ceq,'µF'),num('Energy stored (µJ)',0.5*Ceq*V*V,'µJ')],sol:steps([`n identical capacitors in series: C/n = ${c1}/${n} = ${fmt(Ceq)} µF`,`E = ½CV² = 0.5 × ${fmt(Ceq)} µF × ${V}² = ${fmt(0.5*Ceq*V*V)} µJ`])}
+};
+
+G.divider=()=>{
+ const Vs=pick([5,6,9,10,12,15]),r1=rv(),r2=rv();const Vo=Vs*r2/(r1+r2);
+ const loaded=Math.random()<0.5;let RL=rv(),Vl=Vs*par(r2,RL)/(r1+par(r2,RL));
+ const parts=[num('Unloaded output voltage (V)',Vo,'V')];if(loaded)parts.push(num(`Output voltage when a load R<sub>L</sub> = ${eng(RL,'Ω')} is connected across R2 (V)`,Vl,'V'));
+ return{topic:'basics',title:'Potential divider',stem:`A potential divider has R1 = ${eng(r1,'Ω')} (top) and R2 = ${eng(r2,'Ω')} (bottom) across ${Vs} V.`,svg:CK.div(Vs,eng(r1,'Ω'),eng(r2,'Ω'),loaded?eng(RL,'Ω'):null),parts,
+ sol:steps([`V<sub>out</sub> = V<sub>s</sub>·R2/(R1+R2) = ${Vs} × ${fmt(r2)}/${fmt(r1+r2)} = ${fmt(Vo)} V`].concat(loaded?[`With the load: R2 ∥ R<sub>L</sub> = ${eng(par(r2,RL),'Ω')}`,`V<sub>out</sub> = ${Vs} × ${fmt(par(r2,RL))}/(${fmt(r1)} + ${fmt(par(r2,RL))}) = ${fmt(Vl)} V. Loading always pulls the output down.`]:[]))}
+};
+
+G.pot=()=>{
+ const Vs=pick([5,6,7,9,10,12]);const k=pick([[1,1,1],[1,10,0],[0,10,1],[2.2,4.7,2.2],[1,2,1],[0,10,1],[1,1,0],[4.7,10,4.7]]);
+ const [rt,p,rb]=k;const tot=rt+p+rb;const lo=Vs*rb/tot,hi=Vs*(rb+p)/tot;
+ const s=x=>fmt(x,3)+' V';const corr=`${s(lo)} to ${s(hi)}`;
+ const dis=[`0 V to ${Vs} V`,`${s(lo)} to ${Vs} V`,`0 V to ${s(hi)}`,`${s(Vs*rb/(rt+rb||1))} to ${s(hi)}`,'The output voltage is fixed'];
+ return{topic:'basics',title:'Potentiometer range',stem:`What is the range of output voltages at the wiper as the potentiometer is adjusted? (Top: ${rt?rt+' kΩ':'none'}, pot: ${p} kΩ, bottom: ${rb?rb+' kΩ':'none'}.)`,svg:CK.pot(Vs,rt?rt+'kΩ':'0 Ω',p+'kΩ',rb?rb+'kΩ':'0 Ω'),parts:[mc('',corr,dis)],
+ sol:steps([`Total resistance = ${tot} kΩ, so the current is fixed. The wiper only taps a different point on the chain.`,`Wiper at the bottom: V = ${Vs} × ${rb}/${tot} = ${s(lo)}`,`Wiper at the top: V = ${Vs} × ${rb+p}/${tot} = ${s(hi)}`,`Range: <b>${corr}</b>`])}
+};
+
+G.internal=()=>{
+ const E=pick([1.5,3,4.5,6,9,12]),r=pick([0.5,1,2,5,10,20]),RL=pick([2,4,5,10,20,40,100]);
+ const I=E/(r+RL),Vt=I*RL;
+ return{topic:'basics',title:'Internal resistance',stem:`A cell of EMF ${E} V and internal resistance ${r} Ω is connected to a ${RL} Ω load.`,parts:[num('Current (A)',I,'A'),num('Terminal voltage (V)',Vt,'V'),num('Power delivered to the load (W)',I*I*RL,'W'),num('Short-circuit current (A)',E/r,'A')],
+ sol:steps([`Model: ideal EMF in series with r. I = E/(r + R<sub>L</sub>) = ${E}/${r+RL} = ${fmt(I)} A`,`V<sub>terminal</sub> = E − Ir = I·R<sub>L</sub> = ${fmt(Vt)} V (a potential divider!)`,`P = I²R<sub>L</sub> = ${fmt(I*I*RL)} W`,`Short circuit: I = E/r = ${fmt(E/r)} A. Maximum power would go to the load if R<sub>L</sub> = r = ${r} Ω.`])}
+};
+
+G.power=()=>{
+ const Rr=rv(1,3),P=pick([0.125,0.25,0.5,1,2]),V=pick([3,5,9,12,15,24]);const Pd=V*V/Rr;
+ return{topic:'basics',title:'Power & ratings',stem:`A ${eng(Rr,'Ω')} resistor rated at ${P} W has ${V} V across it.`,parts:[num('Current through it (mA)',V/Rr*1e3,'mA'),num('Power dissipated (W)',Pd,'W'),mc('Is the resistor within its rating?',Pd<=P?'Yes':'No: it will overheat',[Pd<=P?'No: it will overheat':'Yes'],2),num('Maximum voltage it can safely have across it (V)',Math.sqrt(P*Rr),'V')],
+ sol:steps([`I = V/R = ${eng(V/Rr,'A')}`,`P = V²/R = ${V}²/${fmt(Rr)} = ${fmt(Pd)} W → ${Pd<=P?'within':'exceeds'} the ${P} W rating`,`V<sub>max</sub> = √(P·R) = √(${P} × ${fmt(Rr)}) = ${fmt(Math.sqrt(P*Rr))} V`])}
+};
+
+G.rcTime=()=>{
+ const Rr=rv(3,4),C=pick([1,2.2,4.7,10,22,47,100])*1e-6,V0=pick([5,9,10,12]);const tau=Rr*C;const t=parseFloat((tau*pick([0.5,1,1.5,2,3])).toPrecision(2));
+ const chg=Math.random()<0.5;const Vc=chg?V0*(1-Math.exp(-t/tau)):V0*Math.exp(-t/tau);
+ return{topic:'ac',title:chg?'RC charging':'RC discharging',stem:chg?`An uncharged ${eng(C,'F')} capacitor is charged through a ${eng(Rr,'Ω')} resistor from a ${V0} V supply. The switch closes at t = 0.`:`A ${eng(C,'F')} capacitor charged to ${V0} V discharges through a ${eng(Rr,'Ω')} resistor starting at t = 0.`,
+ parts:[num('Time constant τ (s)',tau,'s'),num(`Capacitor voltage at t = ${eng(t,'s')} (V)`,Vc,'V'),num(`Voltage across the resistor at that moment (V)`,chg?V0-Vc:Vc,'V'),num(`Current at that moment (mA)`,(chg?V0-Vc:Vc)/Rr*1e3,'mA'),num('Half-life t<sub>½</sub> (s)',0.693*tau,'s')],
+ sol:steps([`τ = RC = ${fmt(Rr)} × ${eng(C,'F')} = ${eng(tau,'s')}`,chg?`Growth: V<sub>C</sub> = V<sub>0</sub>(1 − e<sup>−t/τ</sup>) = ${V0}(1 − e<sup>−${fmt(t/tau)}</sup>) = ${fmt(Vc)} V`:`Decay: V<sub>C</sub> = V<sub>0</sub>e<sup>−t/τ</sup> = ${V0}e<sup>−${fmt(t/tau)}</sup> = ${fmt(Vc)} V`,chg?`KVL: V<sub>R</sub> = ${V0} − V<sub>C</sub> = ${fmt(V0-Vc)} V`:`While discharging the resistor is across the capacitor: V<sub>R</sub> = V<sub>C</sub> = ${fmt(Vc)} V`,`I = V<sub>R</sub>/R = ${eng((chg?V0-Vc:Vc)/Rr,'A')}`,`t<sub>½</sub> = 0.693RC = ${eng(0.693*tau,'s')}`])}
+};
+
+G.reactance=()=>{
+ const f=pick([50,100,500,1000,2000,5000,10000,15000]),C=pick([0.1,0.22,0.47,1,2.2,10])*1e-6,L=pick([1,2,5,10,20,100])*1e-3;
+ const Xc=1/(PI2*f*C),XL=PI2*f*L;const Xt=pick([100,1000,500]);
+ return{topic:'ac',title:'Reactance',stem:`A signal of ${eng(f,'Hz')} is applied to a ${eng(C,'F')} capacitor and, separately, to a ${eng(L,'H')} inductor.`,parts:[num('X<sub>C</sub> (Ω)',Xc,'Ω'),num('X<sub>L</sub> (Ω)',XL,'Ω'),num(`At what frequency would the capacitor's reactance be ${Xt} Ω? (Hz)`,1/(PI2*Xt*C),'Hz'),mc('If the frequency is doubled, X<sub>C</sub>…','halves',['doubles','stays the same','quadruples'],2)],
+ sol:steps([`X<sub>C</sub> = 1/(2πfC) = 1/(2π × ${f} × ${eng(C,'F')}) = ${fmt(Xc)} Ω`,`X<sub>L</sub> = 2πfL = 2π × ${f} × ${eng(L,'H')} = ${fmt(XL)} Ω`,`f = 1/(2πX<sub>C</sub>C) = ${fmt(1/(PI2*Xt*C))} Hz`,`X<sub>C</sub> ∝ 1/f, so doubling f halves X<sub>C</sub> (X<sub>L</sub> ∝ f would double).`])}
+};
+
+G.rlc=()=>{
+ const Rr=pick([47,100,150,220,330,470,1000]),f=pick([500,1000,2000,5000]),C=pick([0.22,0.47,1,2.2])*1e-6,L=pick([2,5,10,20,47])*1e-3,V=pick([1,2,2.5,5,10]);
+ const Xc=1/(PI2*f*C),XL=PI2*f*L,Z=Math.sqrt(Rr*Rr+(XL-Xc)**2),I=V/Z;const lag=XL>Xc;
+ return{topic:'ac',title:'Series RCL circuit',stem:`A ${V} V<sub>RMS</sub>, ${eng(f,'Hz')} signal generator drives a series circuit of R = ${Rr} Ω, C = ${eng(C,'F')} and L = ${eng(L,'H')}.`,svg:CK.rlc(Rr+'Ω',eng(C,'F'),eng(L,'H'),eng(f,'Hz')),
+ parts:[num('Reactance of the capacitor (Ω)',Xc,'Ω',3),num('Reactance of the inductor (Ω)',XL,'Ω',3),num('Magnitude of the total impedance (Ω)',Z,'Ω',3),num('RMS current through the resistor (mA)',I*1e3,'mA',4),num('RMS voltage across the capacitor (V)',I*Xc,'V',3),mc('Does the current lead or lag the applied voltage?',lag?'Lag (circuit is inductive, X<sub>L</sub> > X<sub>C</sub>)':'Lead (circuit is capacitive, X<sub>C</sub> > X<sub>L</sub>)',[lag?'Lead (circuit is capacitive, X<sub>C</sub> > X<sub>L</sub>)':'Lag (circuit is inductive, X<sub>L</sub> > X<sub>C</sub>)','In phase (resonance)'],3),num('Resonant frequency of this circuit (Hz)',1/(PI2*Math.sqrt(L*C)),'Hz',2)],
+ sol:steps([`X<sub>C</sub> = 1/(2πfC) = ${fmt(Xc,4)} Ω`,`X<sub>L</sub> = 2πfL = ${fmt(XL,4)} Ω`,`|Z| = √(R² + (X<sub>L</sub> − X<sub>C</sub>)²) = √(${Rr}² + (${fmt(XL-Xc,4)})²) = ${fmt(Z,4)} Ω`,`Series circuit, so the same current flows everywhere: I = V/|Z| = ${V}/${fmt(Z,4)} = ${eng(I,'A',4)}`,`V<sub>C</sub> = I·X<sub>C</sub> = ${fmt(I*Xc)} V (component voltages add by Pythagoras, not arithmetically)`,lag?`X<sub>L</sub> > X<sub>C</sub>, so the circuit is inductive and the current <b>lags</b> the voltage (ELI: E before I in an L).`:`X<sub>C</sub> > X<sub>L</sub>, so the circuit is capacitive and the current <b>leads</b> the voltage (ICE: I before E in a C).`,`f<sub>0</sub> = 1/(2π√(LC)) = ${fmt(1/(PI2*Math.sqrt(L*C)))} Hz`])}
+};
+
+G.rcSeries=()=>{
+ const Rr=pick([1,1.5,2.2,3.3,4.7])*1e3,f=pick([100,200,500,1000]),C=pick([0.1,0.2,0.47,1])*1e-6,Vc=pick([1,2,0.5]);
+ const Xc=1/(PI2*f*C),Z=Math.sqrt(Rr*Rr+Xc*Xc),I=Vc/Xc,VR=I*Rr,Vs=I*Z;
+ return{topic:'ac',title:'Series RC circuit (2016 Q3 style)',stem:`A ${eng(f,'Hz')} signal generator drives ${eng(Rr,'Ω')} in series with ${eng(C,'F')}. The RMS voltage across the capacitor is measured as ${Vc} V.`,svg:CK.rlc(eng(Rr,'Ω'),eng(C,'F'),null,eng(f,'Hz')),
+ parts:[num('Reactance of the capacitor (Ω)',Xc,'Ω'),num('Magnitude of total impedance (Ω)',Z,'Ω'),num('RMS current through the capacitor (mA)',I*1e3,'mA'),num('RMS voltage across the resistor (V)',VR,'V'),num('RMS voltage supplied by the generator (V)',Vs,'V')],
+ sol:steps([`X<sub>C</sub> = 1/(2πfC) = ${fmt(Xc,4)} Ω`,`|Z| = √(R² + X<sub>C</sub>²) = ${fmt(Z,4)} Ω`,`I = V<sub>C</sub>/X<sub>C</sub> = ${Vc}/${fmt(Xc,4)} = ${eng(I,'A')}`,`V<sub>R</sub> = IR = ${fmt(VR)} V`,`V<sub>s</sub> = √(V<sub>R</sub>² + V<sub>C</sub>²) = ${fmt(Vs)} V (= I|Z|), <b>not</b> V<sub>R</sub> + V<sub>C</sub>`])}
+};
+
+G.resonance=()=>{
+ const L=pick([1,2.2,4.7,10,22,100])*1e-3,C=pick([10,22,47,100,220,470])*1e-9;const f0=1/(PI2*Math.sqrt(L*C));
+ return{topic:'ac',title:'Resonance',stem:`A series LC circuit has L = ${eng(L,'H')} and C = ${eng(C,'F')}.`,parts:[num('Resonant frequency (kHz)',f0/1e3,'kHz'),mc('At resonance the impedance of a series RCL circuit is…','a minimum, equal to R (current is maximum)',['a maximum','zero','equal to X<sub>L</sub> + X<sub>C</sub>'],2)],sol:steps([`f<sub>0</sub> = 1/(2π√(LC)) = 1/(2π√(${eng(L,'H')} × ${eng(C,'F')})) = ${eng(f0,'Hz')}`,`At f<sub>0</sub>, X<sub>L</sub> = X<sub>C</sub>, so they cancel: |Z| = R (minimum), current is maximum, V and I are in phase.`])}
+};
+
+G.filter=()=>{
+ const type=pick(['HP','LP']),comp=pick(['RC','RC','RL']);const Rr=rv(2,3);let X,fc,Xs;
+ if(comp==='RC'){const C=pick([10,22,47,100,220,470])*1e-9;fc=1/(PI2*Rr*C);Xs=eng(C,'F')}else{const L=pick([1,2.2,4.7,10,47,100])*1e-3;fc=Rr/(PI2*L);Xs=eng(L,'H')}
+ const f=parseFloat((fc*pick([0.25,0.5,2,4])).toPrecision(2));const ratio=f/fc;const g=type==='HP'?ratio/Math.sqrt(1+ratio*ratio):1/Math.sqrt(1+ratio*ratio);
+ const nm=type==='HP'?'High-pass':'Low-pass';
+ return{topic:'filters',title:'RC / RL filter',stem:`Consider the filter shown (R = ${eng(Rr,'Ω')}, ${comp==='RC'?'C':'L'} = ${Xs}).`,svg:CK.filt(type,comp,eng(Rr,'Ω'),Xs),
+ parts:[mc('What type of filter is this?',nm,[type==='HP'?'Low-pass':'High-pass','Band-pass','Band-stop'],2),num('Corner (−3 dB) frequency (Hz)',fc,'Hz',4),num('Voltage gain at the corner frequency',Math.SQRT1_2,'',2),num(`Voltage gain (V<sub>out</sub>/V<sub>in</sub>) at ${eng(f,'Hz')}`,g,'',4),num('Minimum input impedance of the filter (Ω)',Rr,'Ω',2)],
+ sol:steps([comp==='RC'?(type==='HP'?'Series C, shunt R: the capacitor blocks low frequencies → <b>high-pass</b>.':'Series R, shunt C: the capacitor shorts high frequencies to ground → <b>low-pass</b>.'):(type==='HP'?'Series R, shunt L: the inductor shorts low frequencies → <b>high-pass</b>.':'Series L, shunt R: the inductor blocks high frequencies → <b>low-pass</b>.'),`At f<sub>c</sub>, R = X: f<sub>c</sub> = ${comp==='RC'?'1/(2πRC)':'R/(2πL)'} = ${fmt(fc,4)} Hz`,`At f<sub>c</sub> the voltage gain is 1/√2 = 0.707 (−3 dB, half power).`,`At ${eng(f,'Hz')}, X = ${fmt(comp==='RC'?Rr*fc/f:Rr*f/fc,4)} Ω. Treat it as a potential divider: gain = ${type==='HP'?(comp==='RC'?'R':'X<sub>L</sub>'):(comp==='RC'?'X<sub>C</sub>':'R')}/√(R² + X²) = ${fmt(g,4)}`,`Input impedance = R + X, and X → 0 at one extreme of frequency, so the minimum is R = ${eng(Rr,'Ω')}.`])}
+};
+
+G.matching=()=>{
+ const Vs=pick([1,2,5,10]),Zo=pick([50,600,1000,4000,10000]),Zi=pick([50,600,1000,4000,10000,100000]);const Vi=Vs*Zi/(Zo+Zi),I=Vs/(Zo+Zi);
+ return{topic:'filters',title:'Input / output impedance',stem:`A source with an unloaded output of ${Vs} V and an output impedance of ${eng(Zo,'Ω')} drives an amplifier whose input impedance is ${eng(Zi,'Ω')}.`,parts:[num('Actual voltage at the amplifier input (V)',Vi,'V'),num('Power delivered into the amplifier input (mW)',I*I*Zi*1e3,'mW'),mc('To get the largest possible <u>voltage</u> at the amplifier input, its input impedance should be…','As large as possible',['0 Ω','Equal to the output impedance','As small as possible but more than 0 Ω','It has no effect'],2)],
+ sol:steps([`Model: ideal source + Z<sub>out</sub> in series, loaded by Z<sub>in</sub>, which forms a potential divider.`,`V<sub>in</sub> = ${Vs} × ${Zi}/(${Zo}+${Zi}) = ${fmt(Vi)} V`,`P = I²Z<sub>in</sub>, with I = ${eng(I,'A')} → ${fmt(I*I*Zi*1e3)} mW`,`Max voltage transfer: Z<sub>in</sub> ≫ Z<sub>out</sub>. Max power: Z<sub>in</sub> = Z<sub>out</sub>. Max current: Z<sub>in</sub> ≪ Z<sub>out</sub>.`])}
+};
+
+G.acBasics=()=>{
+ const Vp=pick([1,2,3.5,5,10,12,17]),f=pick([50,60,100,250,1000,2000,5000]);const vd=pick([0.5,1,2,5]),div=pick([2,2.5,3,3.4,4]),td=pick([0.1,0.2,0.5,1]),tdiv=pick([2,4,5,8]);
+ return{topic:'ac',title:'AC fundamentals & the oscilloscope',stem:`(i) A sine wave has a peak voltage of ${Vp} V and a frequency of ${f} Hz. (ii) On an oscilloscope set to ${vd} V/div and ${td} ms/div, a sine wave is ${div} divisions from centre to peak, and one full cycle spans ${tdiv} divisions.`,
+ parts:[num('(i) RMS voltage (V)',Vp/Math.SQRT2,'V',2),num('(i) Peak-to-peak voltage (V)',2*Vp,'V',2),num('(i) Period (ms)',1000/f,'ms',2),num('(ii) Amplitude of the scope signal (V)',vd*div,'V',2),num('(ii) Frequency of the scope signal (Hz)',1/(td*tdiv*1e-3),'Hz',2)],
+ sol:steps([`V<sub>RMS</sub> = V<sub>p</sub>/√2 = ${fmt(Vp/Math.SQRT2)} V`,`V<sub>pp</sub> = 2V<sub>p</sub> = ${2*Vp} V`,`T = 1/f = ${fmt(1000/f)} ms`,`Amplitude = ${div} div × ${vd} V/div = ${fmt(vd*div)} V`,`T = ${tdiv} × ${td} ms = ${fmt(td*tdiv)} ms → f = ${fmt(1/(td*tdiv*1e-3))} Hz`])}
+};
+
+G.phase=()=>{const T=pick([1,2,4,5,8,10]),frac=pick([1/8,1/4,1/2,1/3,1/6]);const dt=T*frac;return{topic:'ac',title:'Phase difference',stem:`On a dual-trace scope, two sine waves have a period of ${T} ms, and the peak of trace B occurs ${fmt(dt)} ms after the peak of trace A.`,parts:[num('Phase difference (degrees)',360*frac,'°',3)].concat(frac===0.25?[mc('If A is the <b>current</b> and B the <b>voltage</b> across a single passive component, the component is…','a capacitor (V lags I by 90°)',['an inductor','a resistor','a diode'],3)]:[]),sol:steps([`Phase = (Δt/T) × 360° = (${fmt(dt)}/${T}) × 360° = ${fmt(360*frac)}°`].concat(frac===0.25?['Voltage peaks a quarter-cycle after the current: the current leads by 90°, which is a <b>capacitor</b> (ICE).']:[]))}};
+
+G.diodeA=()=>{
+ let Vs,r1,r2,r3,I3;for(let k=0;k<200;k++){Vs=pick([5,6,9,10,12]);r1=pick([100,150,200,220,330,470]);r2=pick([100,200,300,330,470,1000]);r3=pick([47,68,100,150,220]);I3=(Vs-2.7)/r3;if(I3>0.7/r1*1.2&&I3>2/r2*1.2)break}
+ const I1=0.7/r1,I2=2/r2;
+ return{topic:'diodes',title:'Diode / LED circuit (2018 Q2 style)',stem:`In the circuit shown, the silicon diode is in parallel with ${r1} Ω, the LED is in parallel with ${r2} Ω, and both blocks are in series with ${r3} Ω to ground. Use V<sub>Si</sub> = 0.7 V and V<sub>LED</sub> = 2.0 V.`,svg:CK.dA(Vs,r1+' Ω',r2+' Ω',r3+' Ω'),
+ parts:[num(`Current through the ${r1} Ω resistor (mA)`,I1*1e3,'mA'),num(`Current through the ${r2} Ω resistor (mA)`,I2*1e3,'mA'),num(`Current through the ${r3} Ω resistor (mA)`,I3*1e3,'mA',6),num('Current through the LED (mA)',(I3-I2)*1e3,'mA'),num('Current through the silicon diode (mA)',(I3-I1)*1e3,'mA',2)],
+ sol:steps([`Both diodes point downward (anode at the top) and the supply is high enough, so both are forward-biased. Each one clamps the voltage across its parallel resistor.`,`V across ${r1} Ω = 0.7 V → I = 0.7/${r1} = ${fmt(I1*1e3)} mA`,`V across ${r2} Ω = 2.0 V → I = 2/${r2} = ${fmt(I2*1e3)} mA`,`KVL down the chain: V<sub>${r3}Ω</sub> = ${Vs} − 0.7 − 2.0 = ${fmt(Vs-2.7)} V → I = ${fmt(Vs-2.7)}/${r3} = ${fmt(I3*1e3)} mA (this is the total current)`,`KCL at the LED block: I<sub>LED</sub> = ${fmt(I3*1e3)} − ${fmt(I2*1e3)} = ${fmt((I3-I2)*1e3)} mA`,`KCL at the diode block: I<sub>D</sub> = ${fmt(I3*1e3)} − ${fmt(I1*1e3)} = ${fmt((I3-I1)*1e3)} mA`])}
+};
+
+G.diodeB=()=>{
+ const Vs=pick([3,5,6,9,12]),r1=pick([100,150,200,300,470,1000]),r2=pick([100,200,220,330,680,1000]);const V=Vs-0.7,I1=V/r1,I2=V/r2,It=I1+I2;
+ return{topic:'diodes',title:'Diode feeding parallel resistors (2016 Q2 style)',stem:`A ${Vs} V supply feeds a forward-biased silicon diode, which feeds ${r1} Ω and ${r2} Ω in parallel to ground.`,svg:CK.dB(Vs,r1+' Ω',r2+' Ω'),
+ parts:[num('Voltage drop across the diode (V)',0.7,'V',1),num(`Current through ${r1} Ω (mA)`,I1*1e3,'mA'),num(`Current through ${r2} Ω (mA)`,I2*1e3,'mA'),num('Power dissipated by the diode (mW)',0.7*It*1e3,'mW')],
+ sol:steps([`Si diode forward-biased: V<sub>D</sub> = 0.7 V`,`Both resistors see ${Vs} − 0.7 = ${fmt(V)} V`,`I<sub>${r1}</sub> = ${fmt(V)}/${r1} = ${fmt(I1*1e3)} mA; I<sub>${r2}</sub> = ${fmt(I2*1e3)} mA`,`Diode current = sum = ${fmt(It*1e3)} mA → P = V<sub>D</sub>·I = 0.7 × ${fmt(It*1e3)} mA = ${fmt(0.7*It*1e3)} mW`])}
+};
+
+G.ledR=()=>{
+ const Vs=pick([5,6,9,12,15]),I=pick([10,15,20,25])*1e-3,n=pick([1,1,2]);const Rr=(Vs-2*n)/I;
+ return{topic:'diodes',title:'LED current-limiting resistor',stem:`${n===1?'An LED':n+' LEDs in series'} must be run at ${eng(I,'A')} from a ${Vs} V supply. (Theoretical V<sub>LED</sub> = 2.0 V.)`,parts:[num('Required series resistor (Ω)',Rr,'Ω'),num('Power dissipated in the resistor (mW)',(Vs-2*n)*I*1e3,'mW')],sol:steps([`KVL: ${Vs} − ${n===1?'2.0':n+' × 2.0'} − IR = 0`,`R = ${fmt(Vs-2*n)}/${eng(I,'A')} = ${fmt(Rr)} Ω`,`P = V<sub>R</sub>·I = ${fmt((Vs-2*n)*I*1e3)} mW`])}
+};
+
+G.rectifier=()=>{
+ const Vr=pick([6,9,12,15,18]),f=50;const Vp=Vr*Math.SQRT2;
+ return{topic:'diodes',title:'Rectifiers',stem:`A transformer secondary gives ${Vr} V<sub>RMS</sub> at ${f} Hz. It feeds (a) a half-wave rectifier and (b) a full-wave bridge rectifier (silicon diodes).`,parts:[num('Peak secondary voltage (V)',Vp,'V',2),num('Peak output of the half-wave rectifier (V)',Vp-0.7,'V',2),num('Peak output of the bridge rectifier (V)',Vp-1.4,'V',2),num('Ripple frequency of the full-wave rectifier after smoothing (Hz)',100,'Hz',2)],sol:steps([`V<sub>p</sub> = √2 × ${Vr} = ${fmt(Vp)} V`,`Half-wave: one diode conducts → ${fmt(Vp-0.7)} V`,`Bridge: two diodes conduct in each half-cycle → ${fmt(Vp-1.4)} V`,`Full-wave uses both halves, so the ripple is at 2 × 50 = 100 Hz (half-wave: 50 Hz).`])}
+};
+
+G.tswitch=()=>{
+ const Vs=pick([5,9,10,12]),RB=rv(3,4),RC=pick([100,220,330,470,1000,2200]),b=pick([50,80,100,150,200]);
+ const IB=(Vs-0.7)/RB,ICa=b*IB,VCEa=Vs-ICa*RC;const sat=VCEa<0.2;const IC=sat?(Vs-0.2)/RC:ICa,VCE=sat?0.2:VCEa;const P=VCE*IC+0.7*IB;
+ return{topic:'transistors',title:'Transistor switch / saturation (2016 Q4 style)',stem:`Analyse the transistor circuit: R<sub>B</sub> = ${eng(RB,'Ω')} from the ${Vs} V supply to the base, R<sub>C</sub> = ${eng(RC,'Ω')}, emitter grounded, β = ${b}.`,svg:CK.sw(Vs,eng(RB,'Ω'),eng(RC,'Ω'),b),
+ parts:[num('Base current I<sub>B</sub> (µA)',IB*1e6,'µA'),mc('Is the transistor saturating?',sat?'Yes':'No',[sat?'No':'Yes'],4),num('Collector current I<sub>C</sub> (mA)',IC*1e3,'mA',3),num('V<sub>CE</sub> (V)',VCE,'V',2),num('Power dissipated by the transistor (mW)',P*1e3,'mW',3)],
+ sol:steps([`Input loop: ${Vs} − I<sub>B</sub>(${fmt(RB)}) − 0.7 = 0 → I<sub>B</sub> = ${fmt(Vs-0.7)}/${fmt(RB)} = ${eng(IB,'A')}`,`<i>If</i> not saturating: I<sub>C</sub> = βI<sub>B</sub> = ${b} × ${eng(IB,'A')} = ${eng(ICa,'A')}`,`Output loop: V<sub>CE</sub> = ${Vs} − I<sub>C</sub>R<sub>C</sub> = ${Vs} − ${fmt(ICa*RC)} = ${fmt(VCEa)} V`,sat?`V<sub>CE</sub> < 0.2 V is impossible for an active transistor → it <b>IS saturating</b>. Then V<sub>CE</sub> ≈ 0.2 V and I<sub>C</sub> = (${Vs} − 0.2)/${RC} = ${eng(IC,'A')} (β no longer applies).`:`V<sub>CE</sub> > 0.2 V → <b>not saturating</b>, and I<sub>C</sub> = βI<sub>B</sub> is valid.`,`P = V<sub>CE</sub>I<sub>C</sub> + V<sub>BE</sub>I<sub>B</sub> = ${fmt(VCE)}×${eng(IC,'A')} + 0.7×${eng(IB,'A')} = ${eng(P,'W')}`])}
+};
+
+G.ceAnalysis=()=>{
+ let Vcc,R1,R2,RB,RC,b,Vpd,IB,IC,Vo;for(let k=0;k<300;k++){Vcc=pick([8,9,10,12,15]);R1=rv(3,4);R2=rv(3,3);RB=rv(4,4);RC=pick([330,470,560,680,1000,1500]);b=pick([100,150,200,250]);Vpd=Vcc*R2/(R1+R2);IB=(Vpd-0.7)/RB;IC=b*IB;Vo=Vcc-IC*RC;if(IB>0&&Vo>1&&Vo<Vcc-0.5)break}
+ return{topic:'transistors',title:'Common-emitter amplifier analysis',stem:`Analyse this (unstabilised) common-emitter amplifier. R1 = ${eng(R1,'Ω')}, R2 = ${eng(R2,'Ω')}, R<sub>B</sub> = ${eng(RB,'Ω')}, R<sub>C</sub> = ${RC} Ω, β = ${b}, V<sub>CC</sub> = ${Vcc} V.`,svg:CK.ce(Vcc,eng(R1,'Ω'),eng(R2,'Ω'),eng(RB,'Ω'),RC+'Ω',b),
+ parts:[num('Small-signal AC gain',-b*RC/RB,'',3),num('Potential divider output voltage (V)',Vpd,'V',3),num('Quiescent base current (µA)',IB*1e6,'µA',3),num('Quiescent output voltage (V)',Vo,'V',4)],
+ sol:steps([`Gain = −βR<sub>C</sub>/R<sub>B</sub> = −${b}×${RC}/${fmt(RB)} = ${fmt(-b*RC/RB)}`,`V<sub>pd</sub> = ${Vcc}×${fmt(R2)}/(${fmt(R1)}+${fmt(R2)}) = ${fmt(Vpd)} V`,`Loop through the base: ${fmt(Vpd)} − I<sub>B</sub>R<sub>B</sub> − 0.7 = 0 → I<sub>B</sub> = ${eng(IB,'A')}`,`I<sub>C</sub> = βI<sub>B</sub> = ${eng(IC,'A')}`,`V<sub>out</sub> = V<sub>CC</sub> − I<sub>C</sub>R<sub>C</sub> = ${Vcc} − ${fmt(IC*RC)} = ${fmt(Vo,4)} V (> 0.2 V, so not saturating ✓)`])}
+};
+
+G.stabAnalysis=()=>{
+ let Vcc,R1,R2,RC,RE,b,VB,VE,IE,Vo;for(let k=0;k<300;k++){Vcc=pick([8,9,10,12,15]);R2=1000;R1=pick([2.2,2.7,3.3,3.7,3.9,4.7,5.6,6.8,8.2])*1e3;RC=pick([470,560,680,820,1000,1200,1500,2200]);RE=pick([47,56,68,82,100,150,220,300,330]);b=pick([100,120,150,200]);VB=Vcc*R2/(R1+R2);VE=VB-0.7;IE=VE/RE;Vo=Vcc-IE*RC;if(VE>0.2&&Vo>VE+0.5&&Vo<Vcc-0.3)break}
+ const ICmax=(Vcc-0.2)/(RC+RE),Vmin=ICmax*RE+0.2;
+ return{topic:'transistors',title:'Stabilised common-emitter analysis (2018 Q4 style)',stem:`Consider the amplifier shown: V<sub>CC</sub> = ${Vcc} V, R1 = ${eng(R1,'Ω')}, R2 = 1 kΩ, R<sub>C</sub> = ${eng(RC,'Ω')}, R<sub>E</sub> = ${RE} Ω, β = ${b}.`,svg:CK.stab(Vcc,eng(R1,'Ω'),'1 kΩ',eng(RC,'Ω'),RE+'Ω',b),
+ parts:[mc('What is this type of amplifier called?','Stabilised common-emitter amplifier',['Emitter follower','Complementary emitter follower','Common-emitter (unstabilised) amplifier','Non-inverting amplifier'],2),num('Voltage at the base, V<sub>B</sub> (V)',VB,'V',2),num('Quiescent emitter current I<sub>E</sub> (mA)',IE*1e3,'mA',3),num('Quiescent output voltage (V)',Vo,'V',4),num('Small-signal AC gain',-RC/RE,'',3),num('Maximum possible output voltage (V)',Vcc,'V',2),num('Approximate minimum output voltage, at saturation with V<sub>CE</sub> = 0.2 V (V)',Vmin,'V',4,0.05)],
+ sol:steps([`Emitter resistor plus potential-divider bias = <b>stabilised CE amplifier</b>.`,`V<sub>B</sub> = ${Vcc}×1000/(${fmt(R1)}+1000) = ${fmt(VB)} V (base current is negligible)`,`V<sub>E</sub> = V<sub>B</sub> − 0.7 = ${fmt(VE)} V → I<sub>E</sub> = V<sub>E</sub>/R<sub>E</sub> = ${eng(IE,'A')} ≈ I<sub>C</sub>`,`V<sub>out</sub> = ${Vcc} − I<sub>C</sub>R<sub>C</sub> = ${Vcc} − ${fmt(IE*RC)} = ${fmt(Vo,4)} V`,`Gain = −R<sub>C</sub>/R<sub>E</sub> = ${fmt(-RC/RE)} (independent of β)`,`Max: transistor off, no current → V<sub>out</sub> = V<sub>CC</sub> = ${Vcc} V. Min: saturated, I<sub>C</sub> = (${Vcc} − 0.2)/(R<sub>C</sub>+R<sub>E</sub>) = ${eng(ICmax,'A')} → V<sub>out</sub> = I<sub>C</sub>R<sub>E</sub> + 0.2 = ${fmt(Vmin)} V. Range ≈ ${fmt(Vmin)} V to ${Vcc} V.`])}
+};
+
+G.stabDesign=()=>{
+ const Vcc=pick([9,10,12,15,18]),g=pick([5,8,10,12,15,20]),b=pick([100,120,150,200]),IC=pick([1,2,5,10,15,20])*1e-3;
+ const VRC=(Vcc-1)/2,RC=VRC/IC,RE=RC/g,VE=IC*RE,VB=VE+0.7,R1=Vcc*1000/VB-1000;
+ return{topic:'transistors',title:'Design a stabilised CE amplifier (2016 Q5 style)',stem:`Design a stabilised common-emitter amplifier: AC gain −${g}, supply +${Vcc} V, β = ${b}, quiescent I<sub>C</sub> = ${eng(IC,'A')}. Use the course rules: sacrifice 1 V across R<sub>E</sub> and take R2 = 1000 Ω.`,svg:CK.stab(Vcc,'R1','R2','R<tspan font-size="9">C</tspan>','R<tspan font-size="9">E</tspan>',b),
+ parts:[num('Quiescent output voltage (V)',Vcc-VRC,'V',2),num('R<sub>C</sub> (Ω)',RC,'Ω',3),num('R<sub>E</sub> (Ω)',RE,'Ω',3),num('Required base voltage V<sub>B</sub> (V)',VB,'V',3),num('R1 (Ω) with R2 = 1000 Ω',R1,'Ω',4)],
+ sol:steps([`Sacrifice 1 V for R<sub>E</sub>: the output can swing over ${Vcc} − 1 = ${Vcc-1} V, so drop half of that, ${fmt(VRC)} V, across R<sub>C</sub> → V<sub>out,Q</sub> = ${fmt(Vcc-VRC)} V`,`R<sub>C</sub> = V<sub>RC</sub>/I<sub>C</sub> = ${fmt(VRC)}/${eng(IC,'A')} = ${fmt(RC)} Ω`,`|Gain| = R<sub>C</sub>/R<sub>E</sub> → R<sub>E</sub> = ${fmt(RC)}/${g} = ${fmt(RE)} Ω`,`Recalculate V<sub>E</sub> = I<sub>E</sub>R<sub>E</sub> ≈ ${eng(IC,'A')} × ${fmt(RE)} = ${fmt(VE)} V (not exactly 1 V) → V<sub>B</sub> = V<sub>E</sub> + 0.7 = ${fmt(VB)} V`,`Divider: ${fmt(VB)} = ${Vcc}×1000/(R1+1000) → R1 = ${Vcc}×1000/${fmt(VB)} − 1000 = ${fmt(R1,4)} Ω`,`Draw it: V<sub>in</sub> through a coupling capacitor to the base; R1 from V<sub>CC</sub> to the base; R2 from the base to 0 V; R<sub>C</sub> from V<sub>CC</sub> to the collector (V<sub>out</sub>); R<sub>E</sub> from the emitter to 0 V.`])}
+};
+
+G.ceDesign=()=>{
+ const Vcc=pick([9,10,12,15]),g=pick([5,8,10,20]),b=pick([100,120,150,200]),IC=pick([1,2,5,10])*1e-3;
+ const RC=(Vcc/2)/IC,RB=b*RC/g,IB=IC/b,VB=IB*RB+0.7,R1=Vcc*1000/VB-1000;
+ return{topic:'transistors',title:'Design a common-emitter amplifier',stem:`Design an (unstabilised) common-emitter amplifier: AC gain −${g}, supply ${Vcc} V, β = ${b}, quiescent I<sub>C</sub> = ${eng(IC,'A')}. Take R2 = 1000 Ω.`,parts:[num('R<sub>C</sub> (Ω)',RC,'Ω'),num('R<sub>B</sub> (Ω)',RB,'Ω'),num('Required potential-divider voltage (V)',VB,'V'),num('R1 (Ω)',R1,'Ω',4)],
+ sol:steps([`Quiescent V<sub>out</sub> = V<sub>CC</sub>/2 = ${Vcc/2} V`,`R<sub>C</sub> = (V<sub>CC</sub> − V<sub>out</sub>)/I<sub>C</sub> = ${fmt(RC)} Ω`,`Gain = −βR<sub>C</sub>/R<sub>B</sub> → R<sub>B</sub> = βR<sub>C</sub>/${g} = ${fmt(RB)} Ω`,`I<sub>B</sub> = I<sub>C</sub>/β = ${eng(IB,'A')} → V<sub>pd</sub> = I<sub>B</sub>R<sub>B</sub> + 0.7 = ${fmt(VB)} V`,`R1 = ${Vcc}×1000/${fmt(VB)} − 1000 = ${fmt(R1,4)} Ω`])}
+};
+
+G.ef=()=>{
+ const Vcc=pick([9,10,12,15]),R1=pick([1,1.2,1.5,2.2,3.3])*1e3,R2=1000,RE=pick([47,100,150,220,470]);const VB=Vcc*R2/(R1+R2),VE=VB-0.7,IE=VE/RE;
+ return{topic:'transistors',title:'Emitter follower',stem:`An emitter follower has V<sub>CC</sub> = ${Vcc} V, R1 = ${eng(R1,'Ω')}, R2 = 1 kΩ, R<sub>E</sub> = ${RE} Ω (output taken at the emitter).`,svg:CK.ef(Vcc,eng(R1,'Ω'),'1 kΩ',RE+'Ω'),parts:[num('Quiescent output voltage (V)',VE,'V'),num('Quiescent emitter current (mA)',IE*1e3,'mA'),num('Small-signal voltage gain',1,'',2)],
+ sol:steps([`V<sub>B</sub> = ${Vcc}×1000/(${fmt(R1)}+1000) = ${fmt(VB)} V`,`V<sub>out</sub> = V<sub>E</sub> = V<sub>B</sub> − 0.7 = ${fmt(VE)} V`,`I<sub>E</sub> = V<sub>E</sub>/R<sub>E</sub> = ${eng(IE,'A')}`,`The emitter follows the base, so the voltage gain is 1. Its value is a large current gain and a low output impedance.`])}
+};
+
+G.opamp=()=>{
+ const inv=Math.random()<0.5,sup=pick([9,10,12,15]);const Ra=pick([1,2.2,4.7,10,22])*1e3,Rb=pick([1,2.2,4.7,10,22,47,100])*1e3;
+ const A=inv?-Rb/Ra:1+Rb/Ra;const vins=[pick([0.2,0.5,1,1.5]),pick([2,3,4,6]),-pick([0.5,1,2,3])];const clip=v=>Math.max(-sup,Math.min(sup,v));
+ const parts=[mc('What type of feedback is used?','Negative feedback',['Positive feedback','No feedback (open loop)'],2),mc('What is this circuit called?',inv?'Inverting amplifier':'Non-inverting amplifier',[inv?'Non-inverting amplifier':'Inverting amplifier','Voltage follower','Comparator','Schmitt trigger'],2),num('Closed-loop voltage gain',A,'',3),mc('Input impedance of the circuit (ideal op-amp)',inv?eng(Ra,'Ω')+' (= R<sub>in</sub>)':'∞ Ω (very high)',[inv?'∞ Ω (very high)':eng(Ra,'Ω'),'0 Ω',eng(Rb,'Ω')],3)];
+ vins.forEach(v=>parts.push(num(`Output voltage when V<sub>in</sub> = ${v} V (V)`,clip(A*v),'V',2)));
+ return{topic:'opamps',title:'Op-amp amplifier (2016 Q6 / 2018 Q5 style)',stem:inv?`Inverting amplifier: R<sub>in</sub> = ${eng(Ra,'Ω')}, R<sub>f</sub> = ${eng(Rb,'Ω')}, supplies ±${sup} V (assume the output saturates at the supply rails).`:`Op-amp circuit with V<sub>in</sub> on the + input, ${eng(Rb,'Ω')} from the output to the − input and ${eng(Ra,'Ω')} from the − input to 0 V. Supplies ±${sup} V (assume the output saturates at the rails).`,svg:inv?CK.inv(eng(Ra,'Ω'),eng(Rb,'Ω'),sup):CK.nonInv(eng(Rb,'Ω'),eng(Ra,'Ω'),sup),parts,
+ sol:steps([`The output is fed back to the <b>inverting (−)</b> input → negative feedback.`,inv?`Signal into the − input through R<sub>in</sub> → inverting amplifier: A = −R<sub>f</sub>/R<sub>in</sub> = −${fmt(Rb)}/${fmt(Ra)} = ${fmt(A)}`:`Signal into the + input → non-inverting amplifier: A = 1 + R<sub>f</sub>/R<sub>2</sub> = 1 + ${fmt(Rb)}/${fmt(Ra)} = ${fmt(A)}`,inv?`Virtual earth at the − input, so the input sees exactly R<sub>in</sub>.`:`The input goes straight into the op-amp's + terminal (infinite input impedance) → Z<sub>in</sub> = ∞.`,...vins.map(v=>`V<sub>in</sub> = ${v} V → A×V<sub>in</sub> = ${fmt(A*v)} V${Math.abs(A*v)>sup?` → <b>clipped</b> at ${A*v>0?'+':'−'}${sup} V`:''}`),`When sketching: multiply every point of the input by the gain and flatten anything beyond ±${sup} V.`])}
+};
+
+G.schmitt=()=>{const Vs=pick([9,10,12,15]),R1=pick([10,22,47,100])*1e3,R2=pick([1,2.2,4.7,10])*1e3;const v=Vs*R2/(R1+R2);
+ return{topic:'opamps',title:'Schmitt trigger',stem:`An inverting Schmitt trigger has V<sub>sat</sub> = ±${Vs} V, with feedback from the output to the + input through R1 = ${eng(R1,'Ω')} and R2 = ${eng(R2,'Ω')} from the + input to ground. The input goes to the − input.`,parts:[num('Upper trigger point (V)',v,'V'),num('Lower trigger point (V)',-v,'V'),num('Hysteresis width (V)',2*v,'V'),mc('This circuit uses…','positive feedback',['negative feedback','no feedback'],2)],sol:steps([`V<sub>UTP</sub> = +V<sub>sat</sub>·R2/(R1+R2) = ${Vs}×${fmt(R2)}/${fmt(R1+R2)} = ${fmt(v)} V`,`V<sub>LTP</sub> = −${fmt(v)} V`,`Hysteresis = ${fmt(2*v)} V. Positive feedback to the + input gives two thresholds, which cleans up noisy signals.`])}};
+
+G.diffAmp=()=>{const R1=pick([1,10,4.7])*1e3,R2=pick([10,22,47,100])*1e3,V1=pick([1,1.5,2,2.5]),V2=pick([1.2,1.8,2.2,3]);const Vo=R2/R1*(V2-V1);
+ return{topic:'opamps',title:'Difference amplifier',stem:`A difference amplifier has R1 = R3 = ${eng(R1,'Ω')} and R2 = R4 = ${eng(R2,'Ω')}. V<sub>1</sub> = ${V1} V is applied to the inverting side and V<sub>2</sub> = ${V2} V to the non-inverting side. The supplies are large enough not to clip.`,parts:[num('Output voltage (V)',Vo,'V')],sol:steps([`V<sub>out</sub> = (R2/R1)(V<sub>2</sub> − V<sub>1</sub>) = (${fmt(R2/R1)})(${fmt(V2-V1)}) = ${fmt(Vo)} V`])}};
+
+G.numConv=()=>{
+ const t=pick(['d2b','d2h','d2o','d2bcd','b2d','h2d','h2b','o2d']);let q,p,sol;
+ if(t==='d2b'){const n=R(20,255);p=txt(`Convert ${n}<sub>10</sub> to 8-bit binary`,n,'bin');sol=[`Repeated division by 2, or subtract powers of 2: ${n} = ${[128,64,32,16,8,4,2,1].filter(w=>n&w).join(' + ')}`,`→ <b>${bin(n)}</b>`]}
+ if(t==='d2h'){const n=R(30,4000);p=txt(`Convert ${n}<sub>10</sub> to hexadecimal`,n,'hex');sol=[`Divide by 16 repeatedly and read the remainders upward (10–15 → A–F).`,`${n}<sub>10</sub> = <b>${n.toString(16).toUpperCase()}</b><sub>16</sub>`]}
+ if(t==='d2o'){const n=R(20,600);p=txt(`Convert ${n}<sub>10</sub> to octal`,n,'oct');sol=[`Divide by 8 repeatedly: ${n}<sub>10</sub> = <b>${n.toString(8)}</b><sub>8</sub>`]}
+ if(t==='d2bcd'){const n=R(10,999);p=txt(`Write ${n}<sub>10</sub> in BCD`,String(n),'bcd');sol=[`Each decimal digit becomes its own 4-bit group:`,String(n).split('').map(d=>`${d} → ${(+d).toString(2).padStart(4,'0')}`).join(', '),`<b>${String(n).split('').map(d=>(+d).toString(2).padStart(4,'0')).join(' ')}</b>`]}
+ if(t==='b2d'){const n=R(10,255);p=num(`Convert ${bin(n)}<sub>2</sub> to decimal`,n,'',3,0);sol=[`Add the place values that hold a 1: ${[128,64,32,16,8,4,2,1].filter(w=>n&w).join(' + ')} = <b>${n}</b>`]}
+ if(t==='h2d'){const n=R(16,4095);const h=n.toString(16).toUpperCase();p=num(`Convert ${h}<sub>16</sub> to decimal`,n,'',3,0);sol=[h.split('').map((c,i)=>`${parseInt(c,16)}×16<sup>${h.length-1-i}</sup>`).join(' + ')+` = <b>${n}</b>`]}
+ if(t==='h2b'){const n=R(16,255);const h=n.toString(16).toUpperCase();p=txt(`Convert ${h}<sub>16</sub> to 8-bit binary`,n,'bin');sol=[`Each hex digit maps to one nybble: ${h.padStart(2,'0').split('').map(c=>c+' → '+parseInt(c,16).toString(2).padStart(4,'0')).join(', ')}`,`<b>${bin(n)}</b>`]}
+ if(t==='o2d'){const n=R(8,511);const s=n.toString(8);p=num(`Convert ${s}<sub>8</sub> to decimal`,n,'',3,0);sol=[s.split('').map((c,i)=>`${c}×8<sup>${s.length-1-i}</sup>`).join(' + ')+` = <b>${n}</b>`]}
+ return{topic:'numbers',title:'Number conversion',stem:'Type your answer (spaces are fine; no prefix needed).',parts:[p],sol:steps(sol)}
+};
+
+G.numLong=()=>{
+ const A=R(100,999),B=R(65,127),C=R(5,60);const tc=(256-C)&255,sum=(B+tc)&255;
+ return{topic:'numbers',title:'Number systems (2016 Q8 / 2018 Q7 style)',stem:`Consider the decimal numbers A = ${A}<sub>10</sub>, B = ${B}<sub>10</sub>, C = ${C}<sub>10</sub>.`,
+ parts:[txt('(a) BCD representation of A',String(A),'bcd',3),txt('(b) 8-bit binary representation of B',B,'bin',2),txt('(c) 8-bit 2’s complement of C (i.e. −C)',tc,'bin',6),txt('(d) Add your answers to (b) and (c), keeping 8 bits',sum,'bin',3),num('(e) What decimal value does (d) represent?',B-C,'',2,0)],
+ sol:steps([`BCD: ${String(A).split('').map(d=>(+d).toString(2).padStart(4,'0')).join(' ')}`,`B = ${bin(B)}`,`C = ${bin(C)} → invert every bit: ${bin((~C)&255)} → add 1: <b>${bin(tc)}</b>`,`${bin(B)} + ${bin(tc)} = 1 ${bin(sum)} → discard the carry out of bit 7 → <b>${bin(sum)}</b>`,`= ${sum} = ${B} − ${C} ✓. Adding a 2's complement is how subtraction is done in hardware.`])}
+};
+
+G.twos=()=>{const n=R(1,127);const tc=(256-n)&255;return{topic:'numbers',title:'2’s complement',stem:`Represent −${n}<sub>10</sub> as an 8-bit 2’s complement number.`,parts:[txt('8-bit pattern',tc,'bin',4),mc('What range can 8-bit 2’s complement represent?','−128 to +127',['−127 to +127','0 to 255','−255 to +255'],2)],sol:steps([`+${n} = ${bin(n)}`,`1’s complement (invert): ${bin((~n)&255)}`,`Add 1 → <b>${bin(tc)}</b>`,`8-bit 2’s complement covers −128 to +127 and has only one zero.`])}};
+
+const GATES={AND:[0,0,0,1],OR:[0,1,1,1],NAND:[1,1,1,0],NOR:[1,0,0,0],XOR:[0,1,1,0],XNOR:[1,0,0,1]};
+G.gateID=()=>{
+ let name=pick(['AND','OR','NAND','NOR','XOR','XNOR','NONE','NONE']),out;
+ if(name==='NONE'){do{out=[R(0,1),R(0,1),R(0,1),R(0,1)]}while(Object.values(GATES).some(g=>g.join('')===out.join('')))}else out=GATES[name];
+ const rows=shuffle([[0,0],[0,1],[1,0],[1,1]]).map(([a,b])=>[a,b,out[a*2+b]]);
+ const corr=name==='NONE'?'This is not the truth table of a base logic gate':name;
+ return{topic:'logic',title:'Identify the gate',stem:'The truth table below belongs to which logic gate?'+truthTable(['Input A','Input B','Output'],rows),parts:[mc('',corr,shuffle(['AND','OR','NAND','NOR','XOR','XNOR','This is not the truth table of a base logic gate']).filter(x=>x!==corr).slice(0,6))],
+ sol:steps([`Re-order the rows as 00, 01, 10, 11 → outputs ${out.join(', ')}.`,`Reference: AND 0001, OR 0111, NAND 1110, NOR 1000, XOR 0110, XNOR 1001.`,`→ <b>${corr}</b>${name==='NONE'?` (this pattern is a combination such as ${out.join('')==='0100'?o('A')+'·B':out.join('')==='0010'?'A·'+o('B'):'two gates'}).`:''}`])}
+};
+
+const lit=(v,n)=>v?n:o(n);
+G.sop=()=>{
+ let ones;do{ones=[0,1,2,3,4,5,6,7].filter(()=>Math.random()<0.4)}while(ones.length<2||ones.length>4);
+ const term=(i,flip=false)=>{const b=[(i>>2)&1,(i>>1)&1,i&1].map(x=>flip?1-x:x);return lit(b[0],'A')+'·'+lit(b[1],'B')+'·'+lit(b[2],'C')};
+ const corr=ones.map(i=>term(i)).join(' + ');
+ const d1=ones.map(i=>term(i,true)).join(' + ');
+ const zeros=[0,1,2,3,4,5,6,7].filter(i=>!ones.includes(i));const d2=zeros.slice(0,ones.length).map(i=>term(i)).join(' + ');
+ const d3=ones.map((i,k)=>k===0?term(i^1):term(i)).join(' + ');
+ const d4=ones.map((i,k)=>k===ones.length-1?term(i^4):term(i)).join(' + ');
+ const rows=[0,1,2,3,4,5,6,7].map(i=>[(i>>2)&1,(i>>1)&1,i&1,ones.includes(i)?1:0]);
+ return{topic:'logic',title:'Sum of products (2016 Q7a / 2018 Q6a style)',stem:'Using the “sum of products” method, which expression corresponds to this truth table? (Unsimplified.)'+truthTable(['A','B','C','Q'],rows),parts:[mc('',corr,[d1,d2,d3,d4],5)],
+ sol:steps([`Pick out each row where Q = 1: ${ones.map(i=>[(i>>2)&1,(i>>1)&1,i&1].join('')).join(', ')}.`,`For each row, write an AND term: a variable that is 1 appears plain, a variable that is 0 appears barred.`,`OR the terms together: <b>Q = ${corr}</b>`,`Common trap: barring the 1s instead of the 0s gives ${d1}, which is wrong.`])}
+};
+
+const EXPR=[
+ {h:`X = ${o('A·B')} + C`,f:(a,b,c)=>!(a&&b)||c},
+ {h:`X = (A ⊕ B)·C`,f:(a,b,c)=>(a!==b)&&c},
+ {h:`X = ${o('A + C')}·B`,f:(a,b,c)=>!(a||c)&&b},
+ {h:`X = A·${o('B')} + ${o('A')}·C`,f:(a,b,c)=>(a&&!b)||(!a&&c)},
+ {h:`X = ${o('A ⊕ C')} + A·C`,f:(a,b,c)=>!(a!==c)||(a&&c)},
+ {h:`X = ${o('A·C')}·B + A·C`,f:(a,b,c)=>(!(a&&c)&&b)||(a&&c)},
+ {h:`X = (A + B)·${o('C')}`,f:(a,b,c)=>(a||b)&&!c},
+ {h:`X = ${o(o('A')+' + B')} ⊕ C`,f:(a,b,c)=>((a&&!b))!==!!c},
+ {h:`X = ${o('A + B + C')}`,f:(a,b,c)=>!(a||b||c)},
+ {h:`X = (A·B) ⊕ (B·C)`,f:(a,b,c)=>(a&&b)!==(b&&c)},
+ {h:`X = ${o('A')}·${o('B')} + B·C`,f:(a,b,c)=>(!a&&!b)||(b&&c)},
+ {h:`X = ${o('(A + B)·C')}`,f:(a,b,c)=>!((a||b)&&c)}
+];
+G.boolEval=()=>{const e=pick(EXPR);const ins=shuffle([0,1,2,3,4,5,6,7]).slice(0,4);
+ return{topic:'logic',title:'Evaluate a Boolean expression',stem:`For <b>${e.h}</b>, find X for each set of inputs (enter 0 or 1).`,parts:ins.map(i=>{const a=(i>>2)&1,b=(i>>1)&1,c=i&1;return num(`A=${a}, B=${b}, C=${c}`,e.f(a,b,c)?1:0,'',1,0)}),
+ sol:steps(ins.map(i=>{const a=(i>>2)&1,b=(i>>1)&1,c=i&1;return`A=${a}, B=${b}, C=${c} → X = ${e.f(a,b,c)?1:0}`}).concat(['Work inside out: evaluate the bracket or bar first, then AND (·), then OR (+). ⊕ is 1 when its two inputs differ.']))}};
+
+G.modulo=()=>{
+ const N=R(5,15);const nb=N>7?4:3;const bitsN=[...Array(nb)].map((_,k)=>(N>>(nb-1-k))&1);
+ const desc=bitsN.map((v,k)=>(v?'':'NOT ')+'2<sup>'+(nb-1-k)+'</sup>').join(', ');
+ return{topic:'sequential',title:'Counter modulo (2016 Q1q / 2018 Q1p style)',stem:`A ${nb}-bit binary counter has its asynchronous Reset driven by an AND gate whose inputs are: <b>${desc}</b>. What is the modulo of the counter?`,parts:[mc('','Modulo '+N,['Modulo '+(N-1),'Modulo '+(N+1),'Modulo '+(1<<nb),'Modulo '+(N+2)]),num('Minimum number of flip-flops needed for this modulo',Math.ceil(Math.log2(N)),'',2,0)],
+ sol:steps([`The AND gate fires when the outputs read ${bitsN.join('')}<sub>2</sub> = ${N}.`,`At that moment the counter is instantly reset to 0, so the states seen are 0 … ${N-1}: <b>${N} states → modulo ${N}</b>.`,`2<sup>n</sup> ≥ ${N} → n = ${Math.ceil(Math.log2(N))} flip-flops.`])}
+};
+
+G.ripple=()=>{const f=pick([1,8,16,32,100,1000,1024])*1e3,n=pick([3,4,5,6,8]),tpd=pick([10,15,18,20,25,50])*1e-9,k=R(1,n);
+ return{topic:'sequential',title:'Ripple counter timing',stem:`A ${n}-bit ripple (asynchronous) counter is made of toggle (J = K = 1) flip-flops and clocked at ${eng(f,'Hz')}. Each flip-flop has a propagation delay of ${eng(tpd,'s')}.`,parts:[num(`Frequency at the output of flip-flop ${k} (the 2<sup>${k-1}</sup> bit) (Hz)`,f/Math.pow(2,k),'Hz',3),num('Modulo of the counter',Math.pow(2,n),'',2,0),num('Total ripple delay (ns)',n*tpd*1e9,'ns',2),num('Maximum clock frequency (MHz)',1/(n*tpd)/1e6,'MHz',3)],
+ sol:steps([`Each stage divides by 2: f/2<sup>${k}</sup> = ${eng(f/Math.pow(2,k),'Hz')}`,`n bits → 2<sup>${n}</sup> = ${Math.pow(2,n)} states`,`Delays add up along the chain: ${n} × ${eng(tpd,'s')} = ${eng(n*tpd,'s')}`,`f<sub>max</sub> = 1/${eng(n*tpd,'s')} = ${eng(1/(n*tpd),'Hz')}. Synchronous counters avoid this limit.`])}};
+
+G.timer555=()=>{const R1=rv(3,4),R2=rv(3,4),C=pick([10,22,47,100,220,470,1000])*1e-9;const th=0.69*(R1+R2)*C,tl=0.69*R2*C,T=th+tl;const Rm=rv(4,5),Cm=pick([1,10,22,47,100])*1e-6;
+ return{topic:'sequential',title:'555 timer',stem:`(i) A 555 astable has R1 = ${eng(R1,'Ω')}, R2 = ${eng(R2,'Ω')}, C = ${eng(C,'F')}. (ii) A 555 monostable has R = ${eng(Rm,'Ω')}, C = ${eng(Cm,'F')}.`,parts:[num('(i) t<sub>high</sub> (ms)',th*1e3,'ms'),num('(i) t<sub>low</sub> (ms)',tl*1e3,'ms'),num('(i) Frequency (Hz)',1/T,'Hz'),num('(i) Mark-to-space ratio',th/tl,''),num('(ii) Monostable pulse length (s)',1.1*Rm*Cm,'s')],
+ sol:steps([`t<sub>high</sub> = 0.69(R1+R2)C = ${eng(th,'s')}`,`t<sub>low</sub> = 0.69R2C = ${eng(tl,'s')}`,`f = 1/(t<sub>high</sub>+t<sub>low</sub>) = ${eng(1/T,'Hz')}`,`Mark:space = t<sub>high</sub>/t<sub>low</sub> = ${fmt(th/tl)} (always > 1 for this circuit)`,`Monostable: T = 1.1RC = ${eng(1.1*Rm*Cm,'s')}`])}};
+
+G.energy=()=>{const C=pick([1,10,47,100,470,1000])*1e-6,V=pick([5,9,12,25,50]),L=pick([1,10,50,100])*1e-3,I=pick([0.1,0.2,0.5,1,2]);
+ return{topic:'ac',title:'Stored energy',stem:`(i) A ${eng(C,'F')} capacitor is charged to ${V} V. (ii) A ${eng(L,'H')} inductor carries ${I} A.`,parts:[num('(i) Energy in the capacitor (mJ)',0.5*C*V*V*1e3,'mJ'),num('(i) Charge stored (mC)',C*V*1e3,'mC'),num('(ii) Energy in the inductor (mJ)',0.5*L*I*I*1e3,'mJ')],sol:steps([`E = ½CV² = ${eng(0.5*C*V*V,'J')}`,`Q = CV = ${eng(C*V,'C')}`,`E = ½LI² = ${eng(0.5*L*I*I,'J')}`])}};
+
+G.flash=()=>{const n=pick([2,3,4,8]),Vr=pick([4,5,8,10]);const k=n<=3?R(1,(1<<n)-1):1;
+ return{topic:'conversion',title:'Flash ADC',stem:`An ${n}-bit flash ADC uses a ${Vr} V reference across a chain of equal resistors (input range 0 to ${Vr} V).`,parts:[num('Number of comparators needed',(1<<n)-1,'',2,0),num('Number of equal resistors in the chain',1<<n,'',2,0),num('Resolution (one LSB) (mV)',Vr/(1<<n)*1e3,'mV',2),num(`Reference voltage of comparator number ${k}, counting from the bottom (V)`,Vr*k/(1<<n),'V',2)],
+ sol:steps([`n bits → 2<sup>n</sup> levels → 2<sup>n</sup> − 1 = ${(1<<n)-1} comparators (e.g. 8-bit → 255)`,`2<sup>n</sup> = ${1<<n} equal resistors make the references`,`LSB = ${Vr}/${1<<n} = ${eng(Vr/(1<<n),'V')}`,`Comparator k sees k/2<sup>n</sup> of V<sub>ref</sub>: ${Vr}×${k}/${1<<n} = ${fmt(Vr*k/(1<<n))} V`])}};
+
+G.flashLong=()=>{const Vr=pick([4,5,8,10]);const ref=[3,2,1].map(k=>Vr*k/4);
+ return{topic:'conversion',title:'Design a 2-bit flash ADC (2018 Q8 style)',stem:`Design a full 2-bit flash ADC with a ${Vr} V supply and an input range of 0 to ${Vr} V. Label the comparators A (top), B (middle), C (bottom). V<sub>in</sub> goes to every comparator's + input.`,
+ parts:[num('How many comparators?',3,'',2,0),num('Reference voltage at comparator A (top) (V)',ref[0],'V',2),num('Reference voltage at comparator B (V)',ref[1],'V',2),num('Reference voltage at comparator C (bottom) (V)',ref[2],'V',2),mc('Logic expression for the 2<sup>1</sup> output','2<sup>1</sup> = B',['2<sup>1</sup> = A','2<sup>1</sup> = A·B·C','2<sup>1</sup> = C'],2),mc('Logic expression for the 2<sup>0</sup> output','2<sup>0</sup> = A + C·'+o('B'),['2<sup>0</sup> = C','2<sup>0</sup> = A ⊕ B','2<sup>0</sup> = A·C'],3)],
+ sol:steps([`4 equal resistors (e.g. 1 kΩ each) from ${Vr} V to 0 V give taps at ${ref.join(' V, ')} V.`,`Three comparators: + input = V<sub>in</sub>, − input = its tap. The output is 1 when V<sub>in</sub> > tap (a thermometer code).`,`Truth table (A B C → 2<sup>1</sup>2<sup>0</sup>): 000→00, 001→01, 011→10, 111→11`,`2<sup>1</sup> = B (high in the top two bands)`,`2<sup>0</sup> = A + C·${o('B')} (the bottom band C-only, or the top band)`])}};
+
+G.dacR2R=()=>{const Vr=pick([5,10]),Rr=pick([1,10])*1e3,Rf=pick([1,2,4,5,10])*1e3;const n=4;const I=Vr/Rr;const code=R(1,15),code2=R(1,15);const out=c=>-Rf*I*c/16;
+ return{topic:'conversion',title:'R-2R ladder DAC (2016/2018 Q9 style)',stem:`A 4-bit R-2R ladder DAC uses R = ${eng(Rr,'Ω')}, 2R = ${eng(2*Rr,'Ω')}, V<sub>ref</sub> = ${Vr} V and an inverting op-amp with R<sub>f</sub> = ${eng(Rf,'Ω')}. Switched currents go to the virtual earth.`,
+ parts:[mc('What is the function of this circuit?','Digital-to-analogue converter',['Analogue-to-digital converter','Summing comparator','Flash ADC'],2),num('Total current drawn from V<sub>ref</sub> (mA)',I*1e3,'mA',2),num(`Output for binary ${code.toString(2).padStart(4,'0')} (V)`,out(code),'V',4),num(`Output for binary ${code2.toString(2).padStart(4,'0')} (V)`,out(code2),'V',3),num('Full-scale deflection (1111) (V)',out(15),'V',4),num('Step size (one LSB) (mV)',-out(1)*1e3,'mV',2)],
+ sol:steps([`The ladder always presents R to the source: I = V<sub>ref</sub>/R = ${eng(I,'A')}`,`Branch currents halve at each node: MSB I/2 = ${eng(I/2,'A')}, then I/4, I/8, LSB I/16 = ${eng(I/16,'A')}`,`V<sub>out</sub> = −R<sub>f</sub>·I·(code/16)`,`${code.toString(2).padStart(4,'0')} = ${code} → ${fmt(out(code),4)} V`,`${code2.toString(2).padStart(4,'0')} = ${code2} → ${fmt(out(code2),4)} V`,`FSD = −R<sub>f</sub>·I·15/16 = ${fmt(out(15),4)} V`,`LSB = ${eng(-out(1),'V')} (negative output because the op-amp inverts)`])}};
+
+G.dacW=()=>{const Rr=pick([1,10])*1e3,Rf=pick([1,2,5,10])*1e3/ (pick([1,2])),V=5;const code=R(1,15);const bits=[3,2,1,0].map(k=>(code>>k)&1);const terms=bits.map((b,i)=>b*V/(Rr*Math.pow(2,i)));const Vo=-Rf*terms.reduce((a,b)=>a+b,0);
+ return{topic:'conversion',title:'Weighted-resistor (summing) DAC',stem:`A 4-bit summing-amplifier DAC switches 5 V into resistors R = ${eng(Rr,'Ω')} (MSB), 2R, 4R and 8R (LSB). R<sub>f</sub> = ${eng(Rf,'Ω')}.`,parts:[num(`Output voltage for ${code.toString(2).padStart(4,'0')} (V)`,Vo,'V',4),num('Full-scale output (V)',-Rf*V/Rr*(1+0.5+0.25+0.125),'V',3)],
+ sol:steps([`V<sub>out</sub> = −R<sub>f</sub>(V<sub>1</sub>/R + V<sub>2</sub>/2R + V<sub>3</sub>/4R + V<sub>4</sub>/8R)`,`For ${code.toString(2).padStart(4,'0')}: −${fmt(Rf)}×(${bits.map((b,i)=>b?`5/${fmt(Rr*Math.pow(2,i))}`:'0').join(' + ')}) = ${fmt(Vo,4)} V`,`FSD = −R<sub>f</sub>(5/R)(1.875) = ${fmt(-Rf*V/Rr*1.875)} V. Downside: you need accurate resistors spanning a wide range.`])}};
+
+G.parity=()=>{const ch=pick('ACEJKMPRSTWZaejkq0359'.split(''));const code=ch.charCodeAt(0);const ones=code.toString(2).split('').filter(x=>x==='1').length;const baud=pick([1200,2400,4800,9600,19200,115200]);const odd=Math.random()<0.5;const pbit=odd?(ones%2===0?1:0):(ones%2);
+ return{topic:'comms',title:'RS232 frame & parity',stem:`The character '${ch}' (ASCII ${code} = ${code.toString(2).padStart(7,'0')}<sub>2</sub>, 7 data bits) is sent over RS232 with <b>${odd?'odd':'even'}</b> parity, 1 start bit and 1 stop bit at ${baud} baud.`,parts:[num('Value of the parity bit (0 or 1)',pbit,'',3,0),num('Total bits in the frame',10,'',2,0),num('Duration of one bit (µs)',1e6/baud,'µs',2),num('Maximum characters per second',baud/10,'chars/s',2),mc('Which data bit is transmitted first?','The least significant bit',['The most significant bit','The parity bit','It depends on the baud rate'],2)],
+ sol:steps([`${code.toString(2).padStart(7,'0')} contains ${ones} ones.`,`${odd?'Odd':'Even'} parity: the total number of 1s, including the parity bit, must be ${odd?'odd':'even'} → parity bit = <b>${pbit}</b>`,`Frame = start(1) + data(7) + parity(1) + stop(1) = 10 bits`,`Bit time = 1/${baud} = ${eng(1/baud,'s')}`,`${baud}/10 = ${baud/10} characters per second`,`RS232 sends the LSB first. Logic 1 = −3 to −12 V, logic 0 = +3 to +12 V.`])}};
+
+G.bridge=()=>{const V=pick([5,10,12]),a=pick([1,2.2,4.7,10]),b=pick([1,2.2,4.7,9,10]),c=pick([1,2.2,4.7,10]),d=pick([1,2.2,4.7,9,10]);const Va=V*b/(a+b),Vb=V*d/(c+d);const out=Va-Vb;
+ return{topic:'basics',title:'Wheatstone bridge',stem:`A bridge is powered from ${V} V. The left arm has ${a} kΩ (top) and ${b} kΩ (bottom); the right arm has ${c} kΩ (top) and ${d} kΩ (bottom). The output is the voltage between the two midpoints (left − right).`,parts:[num('Left midpoint voltage (V)',Va,'V',2),num('Right midpoint voltage (V)',Vb,'V',2),num('Bridge output voltage (V)',out,'V',3,0.02)],sol:steps([`Each arm is a potential divider. Left: ${V}×${b}/${fmt(a+b)} = ${fmt(Va)} V`,`Right: ${V}×${d}/${fmt(c+d)} = ${fmt(Vb)} V`,`Output = ${fmt(out)} V. A bridge is balanced (0 V) when the ratios of the two arms are equal.`])}};
+
+/* registry: [fn, weight, isMCQonly] */
+const GEN=[['colour',3],['seriesPar',3],['caps',2],['divider',2],['pot',2],['internal',2],['power',1],['bridge',1],['rcTime',2],['reactance',2],['rlc',3],['rcSeries',2],['resonance',1],['energy',1],['acBasics',1],['phase',1],['filter',3],['matching',2],['diodeA',3],['diodeB',2],['ledR',1],['rectifier',1],['tswitch',3],['ceAnalysis',2],['stabAnalysis',3],['stabDesign',3],['ceDesign',1],['ef',2],['opamp',4],['schmitt',1],['diffAmp',1],['numConv',4],['numLong',3],['twos',2],['gateID',3],['sop',3],['boolEval',3],['modulo',2],['ripple',2],['timer555',2],['flash',2],['flashLong',2],['dacR2R',3],['dacW',1],['parity',2]];
+
+/* ===================== CONCEPT BANK ===================== */
+const CB=[
+// basics
+['basics','An ideal voltmeter is connected…','in parallel and has infinite resistance',['in series and has zero resistance','in parallel and has zero resistance','in series and has infinite resistance'],'A voltmeter measures the potential difference across a component, so it goes in parallel. It must draw no current, so its ideal resistance is infinite.'],
+['basics','An ideal ammeter is connected…','in series and has zero resistance',['in parallel and has infinite resistance','in parallel and has zero resistance','in series and has infinite resistance'],'All the current must pass through it (series), and it must drop no voltage (zero resistance).'],
+['basics','Kirchhoff’s current law is a statement of conservation of…','charge',['energy','power','momentum'],'Charge cannot pile up at a node, so current in = current out.'],
+['basics','Kirchhoff’s voltage law is a statement of conservation of…','energy',['charge','current','power'],'Around any closed loop, the energy gained per coulomb equals the energy lost: ΣV = 0.'],
+['basics','A wire’s length AND cross-sectional area are both doubled. Its resistance…','stays the same',['doubles','halves','quadruples'],'R = ρL/A: doubling L doubles R and doubling A halves it, so there is no net change.'],
+['basics','Adding another resistor in parallel to an existing network causes the total resistance to…','decrease',['increase','stay the same','become infinite'],'Every extra parallel path gives current another route, so the equivalent resistance falls (it is always less than the smallest branch).'],
+['basics','Why does the terminal voltage of a battery drop when it supplies a large current?','Voltage is dropped across its internal resistance',['The EMF decreases instantly','The load resistance increases','Charge is destroyed inside the battery'],'V<sub>terminal</sub> = E − Ir. The more current, the bigger the Ir drop.'],
+['basics','Maximum power is transferred from a source to a load when…','the load resistance equals the source’s internal (output) resistance',['the load resistance is as large as possible','the load resistance is zero','the load resistance is twice the internal resistance'],'Impedance matching: R<sub>L</sub> = r. Half the power is then wasted in the source.'],
+['basics','A Wheatstone bridge gives 0 V output when…','the resistance ratios of the two arms are equal',['all the resistors are different','the supply is 0 V only','the top resistors are larger than the bottom ones'],'Both midpoints then sit at the same potential. In the 2016/2018 MCQ, both arms are 9 kΩ over 1 kΩ, so the output is 0 V.'],
+['basics','1 ampere is equal to…','1 coulomb per second',['1 joule per coulomb','1 volt per ohm squared','1 watt per second'],'I = Q/t.'],
+['basics','A 100 Ω, 5% resistor could actually measure anywhere between…','95 Ω and 105 Ω',['99 Ω and 101 Ω','90 Ω and 110 Ω','100 Ω and 105 Ω'],'5% of 100 Ω = 5 Ω either side.'],
+['basics','Precision 1% resistors are usually marked with…','5 bands (3 significant digits, multiplier, tolerance)',['4 bands','3 bands','6 bands always'],'For example, 1.20 kΩ 1% = Brown Red Black Brown Brown (2016 Q1a).'],
+['basics','A gold band in the multiplier position means…','× 0.1',['× 0.01','5% tolerance only','× 10'],'Gold = 10<sup>−1</sup> as a multiplier (and 5% as a tolerance band). Silver = 10<sup>−2</sup>.'],
+['basics','In a series circuit, which quantity is the same for every component?','Current',['Voltage','Power','Resistance'],'There is only one path, so the same current flows through every component.'],
+['basics','In a parallel circuit, which quantity is the same for every branch?','Voltage',['Current','Power','Resistance'],'All branches connect between the same two nodes.'],
+['basics','If the voltage across a resistor is doubled, the power it dissipates…','increases by a factor of 4',['doubles','halves','stays the same'],'P = V²/R.'],
+['basics','What is the colour code for a 10 Ω 1% resistor? (2018 Q1a)','Brown Black Black Gold Brown',['Brown Black Black Gold','Brown Black Black Brown','Brown Black Gold Brown','There is no colour code for this resistor'],'1% means a 5-band code: digits 1, 0, 0 (Brown Black Black), multiplier ×0.1 (Gold) → 10.0 Ω, tolerance 1% (Brown).'],
+['basics','What is the terminal voltage of a 1.5 V cell with 10 Ω internal resistance across a 20 Ω load? (2016 Q1i)','1 V',['0 V','0.5 V','1.5 V','2 V'],'Potential divider: 1.5 × 20/(10+20) = 1.0 V.'],
+['basics','A 5 V supply has 1 kΩ on top and a 1 kΩ potentiometer below it, with the bottom of the pot at 0 V. What is the MINIMUM wiper voltage? (2016 Q1h)','0 V',['−5 V','−2.5 V','+2.5 V','+5 V'],'With the wiper at the bottom of the pot it touches 0 V directly. The maximum would be 2.5 V.'],
+// ac
+['ac','The RMS value of a sine wave of peak V<sub>p</sub> is…','V<sub>p</sub>/√2 ≈ 0.707V<sub>p</sub>',['V<sub>p</sub>/2','√2·V<sub>p</sub>','2V<sub>p</sub>'],'RMS is the DC-equivalent heating value.'],
+['ac','In a capacitor with an AC signal, the current…','leads the voltage by 90°',['lags the voltage by 90°','is in phase with the voltage','leads the voltage by 180°'],'ICE: in a C, I comes before E (voltage).'],
+['ac','In an inductor with an AC signal, the current…','lags the voltage by 90°',['leads the voltage by 90°','is in phase with the voltage','is always zero'],'ELI: in an L, E (voltage) comes before I.'],
+['ac','A graph shows a component’s current crossing zero and rising at t = 0, while its voltage reaches its positive peak a quarter cycle later. The component is a…','capacitor',['inductor','resistor','diode'],'The voltage lags the current by 90° (equivalently, the current leads) → capacitor. This is exactly 2016 Q1d and 2018 Q1d.'],
+['ac','The voltage across a component peaks a quarter cycle BEFORE its current does. The component is a…','inductor',['capacitor','resistor','AND gate'],'Voltage leads current → ELI → inductor.'],
+['ac','The voltage and current waveforms of a component are exactly in phase. It is a…','resistor',['capacitor','inductor','diode'],'Only pure resistance has zero phase shift.'],
+['ac','In a DC circuit, after a long time a capacitor behaves like…','an open circuit',['a short circuit','a resistor equal to R','a diode'],'Once it is fully charged, no current flows.'],
+['ac','In a DC circuit, after a long time an ideal inductor behaves like…','a short circuit (plain wire)',['an open circuit','a capacitor','a battery'],'The current is steady, so dI/dt = 0 and V = L·dI/dt = 0.'],
+['ac','As the frequency increases, capacitive reactance…','decreases',['increases','stays the same','becomes negative'],'X<sub>C</sub> = 1/(2πfC).'],
+['ac','As the frequency increases, inductive reactance…','increases',['decreases','stays the same','becomes zero'],'X<sub>L</sub> = 2πfL.'],
+['ac','At resonance in a series RCL circuit…','X<sub>L</sub> = X<sub>C</sub>, the impedance is minimum (= R) and the current is maximum',['X<sub>L</sub> = 0','the impedance is maximum','the current is zero'],'The reactances cancel, leaving only R.'],
+['ac','A series RCL circuit operated ABOVE its resonant frequency is…','inductive (current lags)',['capacitive (current leads)','purely resistive','open circuit'],'Above f<sub>0</sub>, X<sub>L</sub> > X<sub>C</sub>.'],
+['ac','Capacitors connected in parallel…','simply add: C = C1 + C2 + …',['combine like resistors in parallel','always total less than the smallest one','cancel out'],'Parallel plates are effectively a bigger plate area.'],
+['ac','Four 1 µF capacitors: two in series, then in series with a parallel pair. Equivalent capacitance? (2018 Q1b)','0.4 µF',['4 µF','2 µF','1 µF','0 µF'],'The parallel pair = 2 µF. Series: 1/(1/1 + 1/1 + 1/2) = 1/2.5 = 0.4 µF.'],
+['ac','After one time constant (τ = RC), a charging capacitor has reached about…','63% of the supply voltage',['37%','50%','100%'],'1 − e<sup>−1</sup> = 0.632.'],
+['ac','A capacitor is considered fully charged after about…','5 time constants',['1 time constant','0.693 time constants','10 seconds regardless of R and C'],'1 − e<sup>−5</sup> ≈ 99.3%.'],
+['ac','The time constant of an RL circuit is…','L/R',['RL','R/L','1/(2πfL)'],'From the formula sheet: τ = L/R.'],
+['ac','Doubling the voltage on a capacitor multiplies its stored energy by…','4',['2','½','8'],'E = ½CV².'],
+['ac','On a scope, two signals of period 4 ms are offset by 1 ms. The phase difference is…','90°',['45°','180°','25°'],'(Δt/T)×360° = ¼ × 360° = 90°.'],
+['ac','The time taken for a discharging capacitor’s voltage to halve is…','0.693RC',['RC','1.1RC','5RC'],'e<sup>−t/RC</sup> = ½ → t = RC·ln 2.'],
+// diodes
+['diodes','The forward voltage drop of a silicon diode is taken as…','0.7 V',['0.2 V','2.0 V','5 V'],'Germanium is about 0.2 V; LEDs are taken as 2.0 V in theory questions.'],
+['diodes','The forward voltage drop of a germanium diode is about…','0.2 V',['0.7 V','2.0 V','1.4 V'],'From the course notes.'],
+['diodes','In theoretical problems (colour not given), an LED’s forward voltage is taken as…','2.0 V',['0.7 V','1.4 V','5 V'],'Real LEDs range from about 1.7 to 2.2 V.'],
+['diodes','The cathode of a diode is marked by…','a band / stripe (on an LED, the flat side and shorter leg)',['a dot on the anode','a red sleeve','nothing: it is symmetrical'],'Conventional current flows from anode to cathode, in the direction the arrow points to the bar.'],
+['diodes','A diode is forward-biased when…','its anode is more positive than its cathode',['its cathode is more positive than its anode','no current flows','it is in reverse breakdown'],'Then it conducts, with about 0.7 V across it for silicon.'],
+['diodes','A Zener diode is normally operated…','in reverse breakdown, to regulate voltage',['forward-biased as a rectifier','as a light source','with no current'],'Its reverse voltage stays almost constant over a wide range of current.'],
+['diodes','A full-wave bridge rectifier on 50 Hz mains gives a ripple frequency of…','100 Hz',['50 Hz','25 Hz','200 Hz'],'Both half-cycles give a pulse. Half-wave gives 50 Hz.'],
+['diodes','The output peak of a bridge rectifier is lower than the input peak by…','1.4 V',['0.7 V','2.0 V','0 V'],'Two silicon diodes conduct in series in each half-cycle.'],
+['diodes','A smoothing (reservoir) capacitor in a power supply…','reduces the ripple on the DC output',['converts DC to AC','increases the ripple frequency','limits the diode current'],'A larger C gives a smaller ripple.'],
+['diodes','Peak inverse voltage (PIV) is…','the maximum reverse voltage a diode can withstand',['the forward voltage drop','the maximum forward current','the voltage at which an LED lights'],'Exceed it and the diode is damaged (except Zeners, which are designed for breakdown).'],
+['diodes','Why is a resistor placed in series with an LED?','To limit the current (typically ~20 mA)',['To raise the forward voltage','To make it flash','To reverse-bias it'],'Without it the current is limited only by the supply, and the LED burns out.'],
+['diodes','Silicon diodes A–D are in a bridge between the battery and a resistor. Which question MUST you answer first for any diode in a circuit?','Is its anode more positive than its cathode?',['How bright is it?','What is its colour?','Is it germanium?'],'Decide forward/reverse bias first, then use 0.7 V or treat it as open.'],
+// transistors
+['transistors','Which relationship is ALWAYS true for a BJT (saturating or not)?','I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub>',['I<sub>C</sub> = βI<sub>B</sub>','I<sub>B</sub> = βI<sub>C</sub>','V<sub>CE</sub> < 0.2 V'],'KCL at the transistor. I<sub>C</sub> = βI<sub>B</sub> only holds when it is NOT saturating (2016 Q1g, 2018 Q1g).'],
+['transistors','When an NPN transistor is NOT saturating, which is true?','I<sub>C</sub> = βI<sub>B</sub>',['V<sub>CE</sub> < 0.2 V','I<sub>B</sub> = βI<sub>C</sub>','V<sub>BE</sub> > 0.9 V'],'In the active region the collector current is β times the base current.'],
+['transistors','A transistor is said to be saturating when…','V<sub>CE</sub> falls below about 0.2 V',['V<sub>BE</sub> = 0','I<sub>B</sub> = 0','V<sub>CE</sub> = V<sub>CC</sub>'],'Test: assume I<sub>C</sub> = βI<sub>B</sub>, compute V<sub>CE</sub>. If you get < 0.2 V (or negative), it is saturated.'],
+['transistors','When a silicon BJT is conducting, V<sub>BE</sub> is about…','0.7 V',['0.2 V','5 V','0 V'],'The base-emitter junction is a forward-biased diode.'],
+['transistors','On an NPN transistor symbol, the arrow is on the…','emitter, pointing outward',['collector, pointing inward','base','emitter, pointing inward'],'"Not Pointing iN" = NPN. On a PNP the arrow points in.'],
+['transistors','A saturated transistor used as a switch behaves like…','a closed switch (V<sub>CE</sub> ≈ 0)',['an open switch','a capacitor','an amplifier with gain β'],'In cut-off it is an open switch (V<sub>CE</sub> = V<sub>CC</sub>).'],
+['transistors','In this course, the small-signal gain of the unstabilised common-emitter amplifier is…','−βR<sub>C</sub>/R<sub>B</sub>',['−R<sub>C</sub>/R<sub>E</sub>','1','1 + R<sub>f</sub>/R<sub>2</sub>'],'As given in the notes. It depends on β, which is its weakness.'],
+['transistors','The main problem with the unstabilised CE amplifier is that…','its gain depends on β, which varies between transistors and with temperature',['it cannot amplify AC','it needs a negative supply','its gain is always 1'],'The stabilised version fixes this with R<sub>E</sub>.'],
+['transistors','The small-signal gain of a stabilised common-emitter amplifier is…','−R<sub>C</sub>/R<sub>E</sub>',['−βR<sub>C</sub>/R<sub>B</sub>','β','+1'],'It is independent of β.'],
+['transistors','The stabilised CE amplifier is stable because of…','negative feedback from the emitter resistor',['positive feedback','the coupling capacitor','the collector resistor alone'],'If I<sub>E</sub> rises, V<sub>E</sub> rises, V<sub>BE</sub> falls, and the transistor turns down.'],
+['transistors','The voltage gain of an emitter follower is about…','1',['β','−R<sub>C</sub>/R<sub>E</sub>','0'],'V<sub>out</sub> = V<sub>in</sub> − 0.7. It gives current gain (low output impedance), not voltage gain.'],
+['transistors','What is the quiescent current in the load of a complementary (NPN + PNP) emitter follower with no biasing? (2018 Q1l)','0 A',['15.2 mA','30.4 mA','60.8 mA','Not enough information'],'With 0 V in, neither transistor has 0.7 V across its base-emitter junction, so both are off. (This causes crossover distortion.)'],
+['transistors','Why is there a capacitor in series with the input of a CE amplifier?','To block DC so the input source doesn’t upset the biasing',['To set the gain','To filter out the AC signal','To make the transistor saturate'],'Only the AC signal reaches the base.'],
+['transistors','A negative amplifier gain means…','the output is inverted (180° phase shift)',['the output is smaller than the input','the amplifier is broken','the output is DC'],'A gain of −10 means 10× bigger and upside down.'],
+['transistors','The “quiescent” output voltage of an amplifier is…','the DC output voltage when no input signal is present',['the peak AC output','the supply voltage','always 0 V'],'This is the operating (bias) point.'],
+['transistors','In this course, when designing a potential divider for bias you may assume…','R2 = 1000 Ω',['R1 = R2','R1 = 0','R2 = ∞'],'One equation, two unknowns, so the course convention fixes R2.'],
+['transistors','The stabilised CE design rule is to…','sacrifice 1 V across R<sub>E</sub>, then drop half of (V<sub>CC</sub> − 1) across R<sub>C</sub>',['set V<sub>out</sub> = V<sub>CC</sub>','make R<sub>E</sub> = R<sub>C</sub>','set V<sub>B</sub> = 0.7 V'],'This leaves the output centred in its available swing.'],
+['transistors','For the basic (unstabilised) CE amplifier, the ideal quiescent output is…','V<sub>CC</sub>/2',['0 V','V<sub>CC</sub>','0.7 V'],'This allows the largest symmetrical swing.'],
+['transistors','A transistor in cut-off (I<sub>B</sub> = 0) has…','I<sub>C</sub> = 0 and V<sub>CE</sub> = V<sub>CC</sub>',['V<sub>CE</sub> = 0','I<sub>C</sub> = βI<sub>B</sub> > 0','V<sub>BE</sub> = 0.7 V'],'There is no current, so there is no drop across R<sub>C</sub>.'],
+['transistors','The highest output voltage of a CE amplifier occurs when the transistor is…','off (cut-off), giving V<sub>out</sub> = V<sub>CC</sub>',['saturated','at its quiescent point','reverse-biased at the collector only'],'No collector current means no voltage drop across R<sub>C</sub>.'],
+// filters
+['filters','At a filter’s corner frequency…','R = X (resistance equals reactance)',['X = 0','R = 0','the gain is 1'],'This gives f<sub>c</sub> = 1/(2πRC) or R/(2πL).'],
+['filters','An RC high-pass filter has a corner frequency of 300 Hz. Its voltage gain at 300 Hz is… (2016/2018 MCQ)','0.707',['0','1','3','The R and C values are needed'],'Every first-order filter has a gain of 1/√2 at f<sub>c</sub> (−3 dB, half power).'],
+['filters','An RC low-pass filter has…','R in series and C to ground (output across C)',['C in series and R to ground','only capacitors','L in parallel with C'],'C shorts high frequencies to ground.'],
+['filters','An RC high-pass filter has…','C in series and R to ground (output across R)',['R in series and C to ground','two resistors','an inductor to ground'],'C blocks the low frequencies.'],
+['filters','An RL filter with L in series and R to ground is a…','low-pass filter',['high-pass filter','band-pass filter','DC block'],'X<sub>L</sub> is large at high f, so it blocks them.'],
+['filters','A source with 4 kΩ output impedance feeds a filter. For the largest VOLTAGE at the filter input, the filter’s input impedance should be…','As large as possible',['0 Ω','As small as possible, but more than 0 Ω','4 kΩ','It has no effect'],'Potential divider: V<sub>in</sub> = V<sub>s</sub>·Z<sub>in</sub>/(Z<sub>out</sub> + Z<sub>in</sub>) → Z<sub>in</sub> ≫ Z<sub>out</sub>. (Appeared in both 2016 and 2018.)'],
+['filters','For maximum POWER transfer between stages…','Z<sub>in</sub> = Z<sub>out</sub>',['Z<sub>in</sub> ≫ Z<sub>out</sub>','Z<sub>in</sub> ≪ Z<sub>out</sub>','Z<sub>in</sub> = 0'],'Impedance matching.'],
+['filters','For maximum CURRENT into the next stage…','Z<sub>in</sub> ≪ Z<sub>out</sub>',['Z<sub>in</sub> = Z<sub>out</sub>','Z<sub>in</sub> ≫ Z<sub>out</sub>','Z<sub>in</sub> = ∞'],'The low load impedance lets the most current flow.'],
+['filters','The minimum input impedance of a simple RC filter is…','R',['0','X<sub>C</sub> at f<sub>c</sub>','∞'],'Z<sub>in</sub> = R + X, and X → 0 at one extreme of frequency.'],
+['filters','A power gain of ½ corresponds to…','−3 dB',['−6 dB','−1 dB','−10 dB'],'10 log(0.5) = −3 dB.'],
+['filters','Voltage gain in decibels is…','20 log(V<sub>out</sub>/V<sub>in</sub>)',['10 log(V<sub>out</sub>/V<sub>in</sub>)','V<sub>out</sub>/V<sub>in</sub>','log(P)'],'Power uses 10 log; voltage uses 20 log.'],
+['filters','The overall voltage gain of cascaded stages (gains A1, A2) is…','A1 × A2 (or sum the dB values)',['A1 + A2','A1 − A2','the larger of the two'],'Each stage amplifies the output of the stage before it.'],
+['filters','The four “black-box” properties of a system building block are…','input impedance, voltage gain, output impedance, power gain',['R, L, C and f','β, V<sub>BE</sub>, V<sub>CE</sub>, I<sub>C</sub>','bandwidth only'],'From the audio-systems chapter.'],
+// opamps
+['opamps','An ideal op-amp has…','infinite open-loop gain, infinite input impedance, zero output impedance',['zero gain, zero input impedance','gain of 1, infinite output impedance','finite gain and zero bandwidth'],'Plus infinite bandwidth.'],
+['opamps','The current flowing into the input terminals of an ideal op-amp is…','0',['determined by the supply rails','V<sub>in</sub>/R<sub>f</sub>','cannot be determined'],'Infinite input impedance. In 2016 Q1l, the current into the + input of a non-inverting amp = 0 mA.'],
+['opamps','With negative feedback (and no saturation), an op-amp’s two inputs are at…','the same voltage (virtual short)',['opposite voltages','the supply rails','0 V always'],'Infinite gain forces V<sub>+</sub> − V<sub>−</sub> → 0.'],
+['opamps','Inverting amplifier gain is…','−R<sub>f</sub>/R<sub>in</sub>',['1 + R<sub>f</sub>/R<sub>in</sub>','R<sub>in</sub>/R<sub>f</sub>','−R<sub>in</sub>/R<sub>f</sub>'],'The virtual earth means I<sub>in</sub> = I<sub>f</sub>.'],
+['opamps','Non-inverting amplifier gain is…','1 + R<sub>f</sub>/R<sub>2</sub>',['−R<sub>f</sub>/R<sub>2</sub>','R<sub>f</sub>/R<sub>2</sub>','1'],'With 10 kΩ and 10 kΩ (2016 Q6 / 2018 Q5), the gain = 2.'],
+['opamps','Input impedance of a non-inverting op-amp amplifier (ideal op-amp, input to the + pin, 10 kΩ/100 kΩ feedback)… (2018 Q1j)','∞ Ω',['0 Ω','9 kΩ','10 kΩ','100 kΩ'],'The signal goes only into the + input, which draws no current.'],
+['opamps','Input impedance of an inverting amplifier is…','R<sub>in</sub>',['∞','R<sub>f</sub>','0'],'The − input is a virtual earth, so the source sees R<sub>in</sub> to ground.'],
+['opamps','A voltage follower (buffer) has a gain of…','1',['0','∞','−1'],'Output wired directly to the − input. It has huge Z<sub>in</sub> and tiny Z<sub>out</sub>.'],
+['opamps','An op-amp used as a comparator has…','no feedback (open loop), so the output saturates high or low',['negative feedback','a gain of exactly 1','a capacitor in the feedback'],'V<sub>out</sub> = +V<sub>sat</sub> if V<sub>+</sub> > V<sub>−</sub>, otherwise −V<sub>sat</sub>.'],
+['opamps','A Schmitt trigger uses…','positive feedback to give two different thresholds (hysteresis)',['negative feedback for linear gain','no feedback','a diode in the feedback'],'It cleans up noisy signals.'],
+['opamps','A non-inverting amp with gain 2 and ±9 V supplies receives a 6 V input. The output is…','+9 V (clipped at the rail)',['+12 V','+6 V','−12 V'],'The output can’t exceed the supply rails, so the peaks are flattened when you sketch it.'],
+['opamps','The weighted-resistor DAC is based on which op-amp circuit?','The summing (inverting) amplifier',['The comparator','The voltage follower','The Schmitt trigger'],'Each input current is weighted 1, ½, ¼, ⅛ and summed at the virtual earth.'],
+['opamps','Negative feedback in op-amp amplifiers gives…','a stable, predictable gain set by the resistors',['oscillation','saturation','hysteresis'],'Positive feedback gives switching and oscillation.'],
+['opamps','On a 741 op-amp, the output is pin…','6',['2','3','7'],'Pin 2 is the inverting input, 3 the non-inverting input, 4 is V−, 7 is V+.'],
+['opamps','If R<sub>2</sub> = R<sub>4</sub> and R<sub>1</sub> = R<sub>3</sub>, a difference amplifier gives…','V<sub>out</sub> = (R<sub>2</sub>/R<sub>1</sub>)(V<sub>2</sub> − V<sub>1</sub>)',['V<sub>out</sub> = V<sub>1</sub> + V<sub>2</sub>','V<sub>out</sub> = −V<sub>1</sub>','V<sub>out</sub> = 0 always'],'It amplifies the difference between its inputs.'],
+// numbers
+['numbers','8-bit 2’s complement can represent…','−128 to +127',['−127 to +127','0 to 255','−255 to +255'],'2<sup>8</sup> = 256 patterns, with one zero.'],
+['numbers','Which signed representation has TWO representations of zero?','Sign-magnitude',['2’s complement','Offset binary','Unsigned binary'],'+0 = 0000 and −0 = 1000.'],
+['numbers','Which of these is an INVALID BCD digit?','1100',['1001','0000','0111'],'BCD digits only go to 1001 (9).'],
+['numbers','A hexadecimal digit represents how many bits?','4 (one nybble)',['8','2','16'],'This is why hex ↔ binary conversion is one nybble at a time.'],
+['numbers','To form the 2’s complement of a binary number you…','invert every bit, then add 1',['invert only the MSB','add 1 then invert','reverse the bit order'],'Invert = 1’s complement; +1 = 2’s complement.'],
+['numbers','In offset binary (4-bit), the pattern 0000 represents…','−8, the most negative value',['0','+8','−0'],'States are filled up sequentially from the most negative.'],
+['numbers','The ASCII code for the character ‘0’ is…','0x30 (011 0000)',['0x00','0x41','0x0A'],'The digits 0–9 are 0x30–0x39.'],
+['numbers','Why is BCD used?','It makes displaying decimal digits (e.g. on 7-segment displays) easy',['It is the most efficient for arithmetic','It uses fewer bits','It has no invalid codes'],'Doing maths in BCD is not recommended.'],
+['numbers','Adding two positive 2’s complement numbers gives a result with MSB = 1. This indicates…','overflow',['a correct negative answer','a carry that should be kept','an invalid BCD code'],'The true result is too big for the bit width.'],
+['numbers','The largest unsigned number in 8 bits is…','255',['127','256','128'],'2<sup>8</sup> − 1.'],
+['numbers','What is 101<sub>10</sub> in BCD? (2016/2018)','0001 0000 0001',['0110 0101','0101 0001','1100101'],'Each digit 1, 0, 1 becomes 4 bits.'],
+['numbers','What is the 8-bit 2’s complement of 32<sub>10</sub> (i.e. −32)? (2016/2018)','1110 0000',['0010 0000','1101 1111','1010 0000'],'32 = 0010 0000 → invert 1101 1111 → +1 = 1110 0000.'],
+// logic
+['logic','Which gates are “universal” (can make every other gate)?','NAND and NOR',['AND and OR','XOR and XNOR','NOT only'],'This means a whole circuit can be built from one IC type.'],
+['logic','De Morgan’s theorem: '+o('A·B')+' = …',o('A')+' + '+o('B'),[o('A')+'·'+o('B'),'A + B',o('A + B')],'Break the bar, change the operator.'],
+['logic','De Morgan’s theorem: '+o('A + B')+' = …',o('A')+'·'+o('B'),[o('A')+' + '+o('B'),'A·B',o('A·B')],'Break the bar, change the operator.'],
+['logic','Simplify: A + '+o('A')+'·B','A + B',['A','B','A·B'],'Absorption/redundancy identity.'],
+['logic','Simplify: A + A·B','A',['B','A + B','A·B'],'If A = 1 the result is 1, and if A = 0 it is 0. B is irrelevant.'],
+['logic','Simplify: A·B + A·'+o('B'),'A',['B','1','A·B'],'A(B + '+o('B')+') = A·1.'],
+['logic','Simplify: (A + B)·(A + '+o('B')+')','A',['B','A·B','1'],'Expand: A + A'+o('B')+' + AB + B'+o('B')+' = A.'],
+['logic','Simplify: Y = '+o('A·C')+'·B + A·C (2016 Q7b / 2018 Q6b)','Y = B + A·C',['Y = B','Y = A·C','Y = '+o('A')+' + B'],'Let X = A·C. Y = '+o('X')+'·B + X = B + X (using X + '+o('X')+'B = X + B). So Y = B + A·C.'],
+['logic','A·'+o('A')+' = …','0',['1','A','2A'],'A variable AND its complement is always 0. (A + '+o('A')+' = 1.)'],
+['logic','A half adder is built from…','an XOR gate (sum) and an AND gate (carry)',['two OR gates','a NAND and a NOR','an XNOR and an OR'],'The circuit in 2018 Q1t: XOR + AND on the same two inputs = half adder.'],
+['logic','A full adder adds…','three bits: A, B and carry-in',['two bits only','four bits','two bytes'],'It outputs a sum and a carry-out.'],
+['logic','An XOR gate outputs 1 when…','its inputs are different',['both inputs are 1','both inputs are 0','either input is 1'],'XNOR is the “equality” gate.'],
+['logic','A 2-input NAND gate becomes an inverter (NOT) when…','both inputs are tied together',['one input is tied to 0','its output is fed back','it is connected to an OR gate'],'NAND(A, A) = '+o('A')+'.'],
+['logic','In TTL, a valid logic LOW is below about ___ and a valid HIGH above about ___.','0.8 V; 2.4 V',['2.5 V; 2.5 V','0 V; 5 V exactly','1.5 V; 3.5 V'],'A voltage between those values is indeterminate.'],
+['logic','TTL logic is built from ___ while CMOS is built from ___.','bipolar transistors; field-effect transistors',['FETs; BJTs','diodes; resistors','relays; valves'],'TTL is the 7400 series and runs from 5 V.'],
+['logic','A truth table for 4 inputs has how many rows?','16',['8','4','32'],'2<sup>n</sup> rows.'],
+['logic','The sum-of-products method gives…','one AND term for every row where the output is 1, ORed together',['one OR term for every 0 row','the simplified expression directly','a NAND of all inputs'],'In each term, a variable that is 0 in that row is barred.'],
+['logic','A truth table: 11→0, 10→0, 00→0, 01→1. Which gate? (2016 Q1n / 2018 Q1m)','This is not the truth table for a base logic gate',['AND','XOR','NOR','NAND'],'Output = '+o('A')+'·B, which needs a NOT and an AND. No single base gate does it.'],
+['logic','In a common-cathode 7-segment display, a segment lights when its pin is driven…','HIGH',['LOW','floating','to −5 V'],'The cathodes are common to 0 V, so each anode needs a HIGH.'],
+// sequential
+['sequential','The essential difference between a latch and a flip-flop is that…','a flip-flop has a clock input (synchronous); a latch does not',['a latch has a clock','flip-flops have only one output','latches cannot store data'],'Latches are asynchronous.'],
+['sequential','For an SR latch/flip-flop, the forbidden input condition is…','S = 1, R = 1',['S = 0, R = 0','S = 1, R = 0','S = 0, R = 1'],'The output would be indeterminate.'],
+['sequential','A D-type flip-flop…','copies D to Q on the active clock edge',['toggles on every clock','ignores the clock','has a forbidden state'],'D = data/delay.'],
+['sequential','A JK flip-flop with J = K = 1…','toggles on every active clock edge',['holds its state','resets','sets'],'J = K = 0 holds; J = 1, K = 0 sets; J = 0, K = 1 resets.'],
+['sequential','A JK flip-flop with J = K = 0…','holds (no change)',['toggles','sets','resets'],'This is the memory state.'],
+['sequential','A T flip-flop with T = 1…','toggles on each clock edge',['holds','sets Q = 1','resets Q = 0'],'This is the building block of counters.'],
+['sequential','Each stage of a ripple counter…','divides the frequency by 2',['doubles the frequency','adds 1 V','inverts the clock'],'So a counter is also a frequency divider.'],
+['sequential','The main drawback of a ripple (asynchronous) counter is…','propagation delays add up, limiting the maximum clock rate',['it cannot count up','it needs a 555','it uses too few flip-flops'],'Synchronous counters fix this by clocking every flip-flop together.'],
+['sequential','How many flip-flops are needed for a modulo-10 counter?','4',['10','3','5'],'2<sup>3</sup> = 8 < 10 ≤ 16 = 2<sup>4</sup>.'],
+['sequential','A counter resets when its outputs (2<sup>3</sup>2<sup>2</sup>2<sup>1</sup>2<sup>0</sup>) read 1010. The modulo is… (2016 Q1q / 2018 Q1p)','Modulo 10',['Modulo 9','Modulo 11','Modulo 8'],'The AND gate takes 2<sup>3</sup>, NOT 2<sup>2</sup>, 2<sup>1</sup>, NOT 2<sup>0</sup> → it fires at 10, so the states seen are 0–9.'],
+['sequential','In a ripple counter where flip-flop A is clocked by the external clock, followed by B, C and D, which output is the 2<sup>2</sup> bit? (2018 Q1o)','Flip-flop C',['Flip-flop A','Flip-flop B','Flip-flop D'],'A = 2<sup>0</sup> (LSB, clocked directly), B = 2<sup>1</sup>, C = 2<sup>2</sup>, D = 2<sup>3</sup>.'],
+['sequential','The least significant bit of a ripple counter is the output of…','the flip-flop driven by the external clock',['the last flip-flop in the chain','the flip-flop with the largest delay','none: ripple counters have no LSB'],'2016 Q1p answer: flip-flop A.'],
+['sequential','A monostable circuit has…','one stable state; it gives a single timed pulse when triggered',['no stable states','two stable states','three states'],'It is also called a one-shot.'],
+['sequential','An astable circuit has…','no stable states, so it oscillates (square wave / clock)',['one stable state','two stable states','a single output pulse'],'Two inverters plus R and C form an astable (2016 Q1r).'],
+['sequential','A bistable circuit is…','a flip-flop or latch (two stable states)',['an oscillator','a one-shot','an amplifier'],'It stays in either state until it is told to change.'],
+['sequential','Switch debouncing is needed because…','mechanical contacts bounce and create multiple pulses',['switches have high resistance','logic gates need AC','it speeds up the clock'],'It is often done with an SR latch or a Schmitt trigger.'],
+['sequential','A 555 monostable is triggered by…','a falling edge (logic 1 → 0) on the trigger pin, and the output goes HIGH for 1.1RC',['a rising edge on the output','connecting pin 8 to ground','a sine wave on pin 5'],'From the course notes.'],
+['sequential','Mark-to-space ratio is…','t<sub>high</sub>/t<sub>low</sub>',['t<sub>low</sub>/t<sub>high</sub>','t<sub>high</sub>/T','f × T'],'Mark = high time, space = low time.'],
+['sequential','For a basic 555 astable, t<sub>high</sub> is always…','longer than t<sub>low</sub>',['shorter than t<sub>low</sub>','equal to t<sub>low</sub>','zero'],'0.69(R1 + R2)C > 0.69R2C.'],
+['sequential','A large (≥100 µF) capacitor is placed across the 5 V supply near a 555 to…','decouple it: absorb supply dips that could upset other logic',['set the timing','make it astable','limit the output current'],'This is a practical consideration from the notes.'],
+['sequential','A NAND-gate monostable (NAND → C → resistor to 0 V → inverter, output fed back to the NAND) sits in its stable state with… (2018 Q1q)','Output 5 V, Trigger 5 V',['Output 0 V, Trigger 0 V','Output 5 V, Trigger 0 V','Output 0 V, Trigger 5 V'],'The resistor holds the inverter input at 0 V, so the output is high. With the output high and the trigger high, the NAND outputs 0 steadily. Pulling the trigger LOW fires it.'],
+// conversion
+['conversion','The fastest type of ADC is the…','flash converter',['ramp and counter','successive approximation','dual-slope'],'All comparisons happen at once.'],
+['conversion','An n-bit flash ADC needs how many comparators?','2<sup>n</sup> − 1',['n','2n','2<sup>n</sup>'],'8 bits → 255 comparators (2018 Q1r).'],
+['conversion','The ADC type commonly found in digital multimeters is…','ramp and counter',['flash','R-2R','successive approximation'],'It is slow but simple.'],
+['conversion','A successive-approximation ADC…','uses a DAC and comparator, deciding bits MSB-first',['uses 2<sup>n</sup> − 1 comparators','counts up from zero every time','needs no DAC'],'It takes n steps for n bits.'],
+['conversion','The purpose of a sample-and-hold circuit is to…','keep the input voltage constant while the ADC converts it',['amplify the signal','convert digital to analogue','remove the DC offset'],'A capacitor plus a voltage follower.'],
+['conversion','The advantage of an R-2R ladder DAC is…','only two resistor values are needed',['it needs no op-amp','it gives a positive output','it is an ADC'],'The equivalent resistance seen by V<sub>ref</sub> is always R.'],
+['conversion','The disadvantage of a weighted-resistor DAC is…','it needs accurate resistors over a wide range of values',['it can’t produce negative voltages','it is slower than a flash ADC','it needs a clock'],'R, 2R, 4R, 8R, … quickly spans orders of magnitude.'],
+['conversion','Why is the output of a summing-amp / R-2R DAC negative?','The op-amp is in the inverting configuration',['Because the resistors are negative','The reference is negative','It is a fault'],'V<sub>out</sub> = −R<sub>f</sub>·I<sub>total</sub>.'],
+['conversion','The resolution of an 8-bit ADC with a 0–5 V range is about…','19.5 mV',['5 mV','0.625 V','39 mV'],'5/256.'],
+['conversion','What type of converter has a resistor chain, 4 comparators and decoding logic? (2016 Q1s)','Flash ADC',['Ramp and counter ADC','Successive approximation ADC','DAC'],'A resistor chain feeding parallel comparators is a flash ADC.'],
+['conversion','The conversion time of a ramp-and-counter ADC…','depends on the size of the input voltage',['is always one clock cycle','is independent of the input','is zero'],'A bigger input takes longer to reach with the ramp.'],
+['conversion','A flash ADC’s comparator outputs (before decoding) form a…','thermometer code',['Gray code','BCD code','ASCII code'],'All comparators below V<sub>in</sub> read 1.'],
+// comms
+['comms','In RS232, a logic 1 is represented by…','−3 V to −12 V',['+3 V to +12 V','0 V','+5 V'],'Negative logic: 1 = negative voltage.'],
+['comms','In RS232, a logic 0 is represented by…','+3 V to +12 V',['−3 V to −12 V','0 V','−5 V'],'This is the opposite of TTL intuition.'],
+['comms','In an RS232 character frame, which data bit is sent first?','The least significant bit',['The most significant bit','The parity bit','The stop bit'],'Order: start bit, then LSB … MSB, then optional parity, then stop.'],
+['comms','Odd parity in RS232 communication means that…','the total number of binary 1s sent in one byte (including the parity bit) must be odd',['the total number of bytes sent must be odd','the total number of bits sent must be odd','the number of 0s must be odd'],'Asked in both 2016 and 2018.'],
+['comms','A parity bit can…','detect (but not correct) a single-bit error',['correct any error','detect any number of errors','compress the data'],'Two flipped bits cancel out and go undetected.'],
+['comms','Why is serial transmission preferred over long distances?','Fewer conductors make the cable much cheaper',['It is always faster','It needs no timing','It is full duplex by definition'],'Parallel is faster but costly over distance.'],
+['comms','Synchronous transmission means…','a separate clock signal is sent with the data',['no clock is sent','data goes both ways at once','only one bit is ever sent'],'Asynchronous (e.g. RS232) uses start and stop bits instead.'],
+['comms','Half duplex means…','data can travel both ways, but only one direction at a time',['data travels one way only','both directions at the same time','two separate cables are required'],'Full duplex = both directions simultaneously.'],
+['comms','USB data signalling is…','differential, on a twisted pair (asynchronous, half duplex)',['single-ended at ±12 V','parallel 8-bit','optical'],'Differential signalling rejects interference.'],
+['comms','The maximum USB cable length in the standard is…','5 m',['15 m','1 m','100 m'],'This limits the transmission delay to about 750 ns.'],
+['comms','In a USB system, who controls all data transfers?','The host controller (the PC)',['Each device independently','The cable','The hub with the most power'],'Devices only respond.'],
+['comms','At 9600 baud, each bit lasts about…','0.104 ms',['9.6 ms','1 µs','0.96 s'],'1/9600 s.'],
+['comms','Error CORRECTION (as opposed to detection) requires…','redundancy in the transmitted data',['only a parity bit','a faster baud rate','parallel transmission'],'A CRC or parity bit only detects errors.']
+];
+const CONCEPT=CB.map(([topic,q,a,d,e])=>({topic,q,a,d,e}));
+function conceptQ(c){return{topic:c.topic,title:'Concept MCQ',stem:c.q,parts:[mc('',c.a,c.d)],sol:'<p>'+c.e+'</p>'}}
+
+/* ===================== STATS ===================== */
+const SK='phy1e2_stats_v1';
+const stats=JSON.parse(localStorage.getItem(SK)||'{}');
+function rec(topic,ok,n=1){stats[topic]=stats[topic]||{a:0,c:0};stats[topic].a+=n;stats[topic].c+=ok;localStorage.setItem(SK,JSON.stringify(stats))}
+
+/* ===================== RENDER + CHECK ===================== */
+let uid=0;
+function norm(s){return String(s).replace(/\s|_/g,'').replace(/^0[bxo]/i,'').toUpperCase()}
+function checkPart(p,val){
+ if(p.kind==='mcq')return val===p.ans;
+ if(val===''||val==null)return false;
+ if(p.kind==='num'){const x=parseFloat(String(val).replace(/[^0-9eE.+\-]/g,''));if(isNaN(x))return false;if(p.ans===0)return Math.abs(x)<1e-6;if(p.tol===0)return Math.abs(x-p.ans)<1e-9;return Math.abs(x-p.ans)<=Math.abs(p.ans)*p.tol+1e-12}
+ const s=norm(val);
+ if(p.kind==='bin')return/^[01]+$/.test(s)&&parseInt(s,2)===p.ans;
+ if(p.kind==='hex')return/^[0-9A-F]+$/.test(s)&&parseInt(s,16)===p.ans;
+ if(p.kind==='oct')return/^[0-7]+$/.test(s)&&parseInt(s,8)===p.ans;
+ if(p.kind==='bcd'){const want=String(p.ans).split('').map(d=>(+d).toString(2).padStart(4,'0')).join('');return s.replace(/^0+/,'')===want.replace(/^0+/,'')}
+ return false;
+}
+function ansText(p){if(p.kind==='mcq')return p.opts[p.ans];if(p.kind==='num')return fmt(p.ans,4)+(p.unit?' '+p.unit:'');if(p.kind==='bin')return bin(p.ans,Math.max(8,p.ans.toString(2).length));if(p.kind==='hex')return p.ans.toString(16).toUpperCase();if(p.kind==='oct')return p.ans.toString(8);if(p.kind==='bcd')return String(p.ans).split('').map(d=>(+d).toString(2).padStart(4,'0')).join(' ')}
+function renderQ(q,host,num_,opt={}){
+ const id='q'+(++uid);const tot=q.parts.reduce((a,p)=>a+p.marks,0);
+ let h=`<div class="card" id="${id}"><div class="row"><span class="tag">${TOPICS[q.topic]}</span><span class="tag m">${q.title}</span><span class="tag m">${tot} marks</span>${num_?`<b style="margin-left:auto">${num_}</b>`:''}</div><div class="q-stem">${q.stem}</div>${q.svg||''}`;
+ q.parts.forEach((p,i)=>{h+=`<div class="part"><div class="pq"><div>${q.parts.length>1?`<b>(${String.fromCharCode(97+i)})</b> `:''}${p.q}</div><span class="mk">(${p.marks})</span></div>`;
+  if(p.kind==='mcq'){h+='<div class="opts">'+p.opts.map((o_,j)=>`<label><input type="radio" name="${id}_${i}" value="${j}"> <span>${o_}</span></label>`).join('')+'</div>'}
+  else{h+=`<div style="margin-top:6px"><input class="num" data-i="${i}" placeholder="${p.kind==='num'?'number':p.kind==='bcd'?'e.g. 0001 0010':p.kind==='bin'?'e.g. 0110 1001':'answer'}" autocomplete="off"><span class="unit">${p.unit||({bin:'(binary)',hex:'(hex)',oct:'(octal)',bcd:'(BCD)'})[p.kind]||''}</span></div>`}
+  h+=`<div class="fb" data-fb="${i}"></div></div>`});
+ if(!opt.mock)h+=`<div class="row" style="margin-top:8px"><button class="btn chk">Check answer</button><button class="btn ghost shw">Show memo</button></div>`;
+ h+=`<div class="sol"><h4>Memo / worked solution</h4>${q.sol}</div></div>`;
+ host.insertAdjacentHTML('beforeend',h);const el=document.getElementById(id);
+ const api={el,q,done:false,mark(){let sc=0,okc=0;q.parts.forEach((p,i)=>{let v;if(p.kind==='mcq'){const r=el.querySelector(`input[name="${id}_${i}"]:checked`);v=r?+r.value:-1;el.querySelectorAll(`input[name="${id}_${i}"]`).forEach(inp=>{const lab=inp.parentElement;lab.classList.remove('ok','bad');if(+inp.value===p.ans)lab.classList.add('ok');else if(inp.checked)lab.classList.add('bad');inp.disabled=true})}else{const inp=el.querySelector(`input[data-i="${i}"]`);v=inp.value.trim();inp.classList.remove('ok','bad')}
+   const ok=checkPart(p,v);if(ok){sc+=p.marks;okc++}
+   if(p.kind!=='mcq'){const inp=el.querySelector(`input[data-i="${i}"]`);inp.classList.add(ok?'ok':'bad');inp.disabled=true}
+   const fb=el.querySelector(`[data-fb="${i}"]`);fb.className='fb '+(ok?'ok':'bad');fb.innerHTML=ok?'✔ Correct':'✘ Answer: <b>'+ansText(p)+'</b>'});
+  el.querySelector('.sol').classList.add('on');api.done=true;const b=el.querySelector('.chk');if(b)b.disabled=true;return{sc,tot,okc,n:q.parts.length}}};
+ if(!opt.mock){el.querySelector('.chk').onclick=()=>{if(api.done)return;const r=api.mark();rec(q.topic,r.okc,r.n);opt.onMark&&opt.onMark(r)};el.querySelector('.shw').onclick=()=>el.querySelector('.sol').classList.toggle('on')}
+ return api;
+}
+
+/* ===================== PRACTICE ===================== */
+const selTopics=new Set(Object.keys(TOPICS));const selSrc=new Set(['calc','concept']);
+const chipHost=document.getElementById('topicChips');
+chipHost.innerHTML='<span class="small">Topics:</span>'+Object.entries(TOPICS).map(([k,v])=>`<span class="chip on" data-k="${k}">${v}</span>`).join('')+'<span class="chip" data-k="__all">All</span><span class="chip" data-k="__none">None</span>';
+chipHost.onclick=e=>{const c=e.target.closest('.chip');if(!c)return;const k=c.dataset.k;if(k==='__all'){Object.keys(TOPICS).forEach(t=>selTopics.add(t))}else if(k==='__none'){selTopics.clear()}else{selTopics.has(k)?selTopics.delete(k):selTopics.add(k)}syncChips()};
+function syncChips(){chipHost.querySelectorAll('.chip[data-k]').forEach(c=>{if(TOPICS[c.dataset.k])c.classList.toggle('on',selTopics.has(c.dataset.k))})}
+document.querySelectorAll('[data-src]').forEach(c=>c.onclick=()=>{const s=c.dataset.src;if(selSrc.has(s)&&selSrc.size>1)selSrc.delete(s);else selSrc.add(s);c.classList.toggle('on',selSrc.has(s))});
+const genTopicCache={};
+function genTopic(name){if(!(name in genTopicCache)){try{genTopicCache[name]=G[name]().topic}catch(e){genTopicCache[name]=null}}return genTopicCache[name]}
+function randomQuestion(topicsSet,src){
+ const pool=[];
+ if(src.has('calc'))GEN.forEach(([n,w])=>{if(topicsSet.has(genTopic(n)))for(let i=0;i<w;i++)pool.push(()=>G[n]())});
+ if(src.has('concept'))CONCEPT.forEach(c=>{if(topicsSet.has(c.topic))pool.push(()=>conceptQ(c))});
+ if(!pool.length)return null;return pick(pool)();
+}
+let sess={s:0,t:0},cur=null;
+function nextQ(){const host=document.getElementById('pq');host.innerHTML='';const q=randomQuestion(selTopics,selSrc);if(!q){host.innerHTML='<div class="card">Select at least one topic.</div>';return}
+ cur=renderQ(q,host,'',{onMark:r=>{sess.s+=r.sc;sess.t+=r.tot;document.getElementById('sessScore').textContent=`Session: ${sess.s} / ${sess.t} marks (${Math.round(100*sess.s/sess.t)}%)`}});
+ const f=host.querySelector('input.num');if(f)f.focus()}
+document.getElementById('nextBtn').onclick=nextQ;
+document.addEventListener('keydown',e=>{if(!document.getElementById('practice').classList.contains('on'))return;if(e.key==='Enter'&&cur&&!cur.done){e.preventDefault();cur.el.querySelector('.chk').click()}else if((e.key==='n'||e.key==='N')&&document.activeElement.tagName!=='INPUT'){nextQ()}});
+
+/* ===================== MOCK EXAM ===================== */
+let mockTimer=null;
+document.getElementById('startMock').onclick=()=>{
+ const body=document.getElementById('mockBody');body.innerHTML='';clearInterval(mockTimer);
+ const mcqGens=['colour','gateID','modulo','pot','sop'];const mcqs=[];
+ shuffle(mcqGens).slice(0,5).forEach(n=>{const q=G[n]();q.parts=[q.parts.find(p=>p.kind==='mcq')];q.parts[0].marks=4;mcqs.push(q)});
+ const byT={};CONCEPT.forEach(c=>{(byT[c.topic]=byT[c.topic]||[]).push(c)});
+ const tk=Object.keys(byT);let k=0;const used=new Set();
+ while(mcqs.length<20){const t=tk[k++%tk.length];const c=pick(byT[t]);if(used.has(c.q))continue;used.add(c.q);mcqs.push(conceptQ(c))}
+ const order=['basics','ac','diodes','transistors','filters','opamps','logic','sequential','conversion','comms','numbers'];
+ const mcqSorted=shuffle(mcqs).sort((a,b)=>order.indexOf(a.topic)-order.indexOf(b.topic));
+ const longs=[pick([G.diodeA,G.diodeB])(),pick([G.rlc,G.rcSeries])(),pick([G.stabAnalysis,G.stabDesign,G.tswitch])(),G.opamp(),G.sop(),G.numLong(),pick([G.dacR2R,G.flashLong])()];
+ const bool=G.boolEval();longs.splice(5,0,bool);
+ const lp=longs.flatMap(q=>q.parts);const lsum=lp.reduce((a,p)=>a+p.marks,0);lp.forEach(p=>p.marks=Math.max(1,Math.round(p.marks*120/lsum)));
+ let diff=120-lp.reduce((a,p)=>a+p.marks,0);for(let i=0;diff!==0&&i<lp.length*4;i++){const p=lp[i%lp.length];if(diff>0){p.marks++;diff--}else if(p.marks>1){p.marks--;diff++}}
+ body.insertAdjacentHTML('beforeend',`<div class="card sticky row"><b>Mock exam in progress</b><span style="flex:1"></span><span class="timer" id="mTimer">2:00:00</span><button class="btn" id="mSubmit">Submit &amp; mark</button></div><h2>Question 1: Multiple choice (20 × 4 = 80 marks)</h2>`);
+ const apis=[];mcqSorted.forEach((q,i)=>apis.push(renderQ(q,body,'1('+String.fromCharCode(97+i)+')',{mock:true})));
+ body.insertAdjacentHTML('beforeend','<h2>Long questions</h2>');
+ longs.forEach((q,i)=>apis.push(renderQ(q,body,'Question '+(i+2),{mock:true})));
+ const total=apis.reduce((a,x)=>a+x.q.parts.reduce((s,p)=>s+p.marks,0),0);
+ body.insertAdjacentHTML('beforeend',`<div class="card"><p class="small">Total available: ${total} marks. Long-question marks are spread across the auto-markable parts. In the real exam you would also get method marks, so always show your working!</p><button class="btn" id="mSubmit2">Submit &amp; mark</button></div><div id="mResult"></div>`);
+ let left=7200;mockTimer=setInterval(()=>{left--;const h=Math.floor(left/3600),m=Math.floor(left%3600/60),s=left%60;const t=document.getElementById('mTimer');if(t)t.textContent=`${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;if(left<=0){clearInterval(mockTimer);submit()}},1000);
+ function submit(){clearInterval(mockTimer);let sc=0,tt=0;const per={};apis.forEach(a=>{if(a.done)return;const r=a.mark();sc+=r.sc;tt+=r.tot;rec(a.q.topic,r.okc,r.n);per[a.q.topic]=per[a.q.topic]||{s:0,t:0};per[a.q.topic].s+=r.sc;per[a.q.topic].t+=r.tot});
+  if(!tt)return;const pct=Math.round(100*sc/tt);
+  const html=`<div class="card"><h2>Result: ${sc} / ${tt} (${pct}%)</h2><p>${pct>=75?'Excellent, that would be a first-class mark. Keep sitting mocks to stay sharp.':pct>=50?'A pass. Look at the topic breakdown below and drill your weakest areas in Practice.':'Not there yet. Go through every memo below, then drill the weak topics in Practice.'}</p><table class="formula">${Object.entries(per).sort((a,b)=>a[1].s/a[1].t-b[1].s/b[1].t).map(([t,v])=>`<tr><td>${TOPICS[t]}</td><td>${v.s}/${v.t}</td><td style="width:50%"><div class="bar"><div style="width:${100*v.s/v.t}%"></div></div></td></tr>`).join('')}</table></div>`;
+  document.getElementById('mResult').innerHTML=html;document.getElementById('mResult').scrollIntoView({behavior:'smooth'});document.getElementById('mTimer').textContent='Marked';}
+ document.getElementById('mSubmit').onclick=()=>{if(confirm('Submit the exam for marking?'))submit()};document.getElementById('mSubmit2').onclick=()=>{if(confirm('Submit the exam for marking?'))submit()};
+ document.getElementById('mockIntro').querySelector('button').textContent='Start a fresh mock (discards this one)';
+ body.scrollIntoView({behavior:'smooth'});
+};
+
+/* ===================== PAST PAPER MEMOS ===================== */
+function ppItem(q,memo){return`<div class="pp-q"><div>${q}</div><button class="btn ghost" style="margin-top:6px;padding:5px 12px;font-size:13px" onclick="this.nextElementSibling.classList.toggle('on')">Show memo</button><div class="sol">${memo}</div></div>`}
+document.getElementById('ppBody').innerHTML=`
+<div class="card"><h2>Past paper memos</h2><p class="small">These are worked memos for the November 2016 and November 2018 theory papers you attached. The circuits are described in words, so keep the PDF open next to this page. A few multiple-choice questions that depend entirely on a hard-to-read diagram are marked “see paper”. <b>Note:</b> large parts of the two papers are identical (the bridge, filter gain, input impedance, op-amp sketch, SOP, Boolean simplification, number systems, R-2R DAC), so expect repeats.</p></div>
+<div class="card"><h2>November 2018</h2><h3>Question 1: MCQ</h3>
+${ppItem('(a) Colour code for a 10 Ω 1% resistor','<b>Brown Black Black Gold Brown.</b> 1% → 5-band code: 1, 0, 0 × 0.1 (gold) = 10.0 Ω, then Brown = 1%.')}
+${ppItem('(b) Equivalent capacitance: 1 µF + 1 µF in series, then in series with (1 µF ∥ 1 µF)','Parallel pair = 2 µF. Series: 1/C = 1 + 1 + 0.5 = 2.5 → <b>0.4 µF</b>.')}
+${ppItem('(d) Current solid (sin, starting at 0), voltage dotted (starting at its minimum): component?','The voltage reaches each peak a quarter cycle AFTER the current, so V lags I by 90° → <b>Capacitor</b>.')}
+${ppItem('(f) 6 V → 1 kΩ → 1 kΩ variable resistor → V<sub>out</sub> → 1 kΩ → 0 V. Range?','V<sub>out</sub> = 6 × 1k/(2k + R<sub>var</sub>). R<sub>var</sub> = 0 → 3 V; R<sub>var</sub> = 1 kΩ → 2 V. <b>2 V to 3 V</b>.')}
+${ppItem('(g) NPN NOT saturating: which is true?','<b>I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub></b>. (V<sub>CE</sub> < 0.2 V means saturation; I<sub>B</sub> = βI<sub>C</sub> is backwards.)')}
+${ppItem('(h) Source Z<sub>out</sub> = 4 kΩ; for the highest voltage at the filter input, Z<sub>in</sub> should be…','<b>As large as possible</b> (potential divider: Z<sub>in</sub> ≫ Z<sub>out</sub>).')}
+${ppItem('(i) RC high-pass, f<sub>c</sub> = 300 Hz: gain at 300 Hz','<b>0.707</b>. At the corner frequency the gain is always 1/√2.')}
+${ppItem('(j) Input impedance of the non-inverting amp (V<sub>in</sub> to the + input, 10 k/100 k feedback)','<b>∞ Ω</b>. The signal only enters the ideal op-amp’s + input.')}
+${ppItem('(k) Bridge: both arms 9 kΩ (top) over 1 kΩ (bottom), 10 V','Both midpoints = 10 × 1/10 = 1 V → output <b>0 V</b>.')}
+${ppItem('(l) Quiescent current in the 330 Ω load of a complementary emitter follower (±10 V)','<b>0 A</b>. There is no biasing: with 0 V in, both transistors are off.')}
+${ppItem('(m) Truth table 11→0, 10→0, 00→0, 01→1','<b>Not the truth table for a base logic gate</b> (it is '+o('A')+'·B).')}
+${ppItem('(o) Ripple counter A→B→C→D: which flip-flop is the 2<sup>2</sup> bit?','A is clocked by the clock, so A = 2<sup>0</sup>, B = 2<sup>1</sup>, <b>C = 2<sup>2</sup></b>.')}
+${ppItem('(p) Reset AND gate fed by 2<sup>3</sup>, NOT 2<sup>2</sup>, 2<sup>1</sup>, NOT 2<sup>0</sup>','Fires at 1010 = 10 → <b>Modulo 10</b>.')}
+${ppItem('(q) NAND → C → (R to 0 V) → inverter → output, with the output fed back to the NAND','The stable state is <b>Output 5 V, Trigger 5 V</b>. The resistor holds the inverter input low, so the output is high. NAND(5 V, 5 V) = 0, which is steady. A LOW trigger fires the pulse.')}
+${ppItem('(r) 8-bit flash ADC: minimum comparators','2<sup>8</sup> − 1 = <b>255</b>.')}
+${ppItem('(s) Odd parity in RS232 means…','<b>The total number of binary 1’s sent in one byte must be odd</b> (counting the parity bit).')}
+${ppItem('(t) XOR and AND on the same two inputs','<b>Half adder</b> (XOR = sum, AND = carry).')}
+${ppItem('(c), (e), (n)','See the paper. These depend on reading the diagram exactly. Method for (c): find the equivalent resistances, then split the currents at each node. Method for (e): check each diode for anode > cathode. Method for (n): compare each output change against the SR, D, JK and T rules at the clock edges.')}
+<h3>Question 2: Diode/LED chain (15)</h3>
+${ppItem('5 V → (200 Ω ∥ Si diode) → (300 Ω ∥ LED) → 100 Ω → 0 V. Find the currents in 200 Ω, 300 Ω, 100 Ω and the LED.',steps(['Both diodes are forward-biased, so they clamp their parallel resistors.','(a) V<sub>200</sub> = 0.7 V → I = 0.7/200 = <b>3.5 mA</b>','(b) V<sub>300</sub> = 2.0 V → I = 2/300 = <b>6.67 mA</b>','(c) V<sub>100</sub> = 5 − 0.7 − 2.0 = 2.3 V → I = <b>23 mA</b> (the total current)','(d) I<sub>LED</sub> = 23 − 6.67 = <b>16.3 mA</b>']))}
+<h3>Question 3: RCL (16)</h3>
+${ppItem('100 Ω, 1 µF, 5 mH in series, 5 kHz, 5 V<sub>RMS</sub>.',steps(['(a) X<sub>C</sub> = 1/(2π·5000·1×10<sup>−6</sup>) = <b>31.8 Ω</b>','(b) X<sub>L</sub> = 2π·5000·0.005 = <b>157.1 Ω</b>','(c) |Z| = √(100² + (157.1 − 31.8)²) = √(100² + 125.3²) = <b>160.3 Ω</b>','(d) I = 5/160.3 = <b>31.2 mA<sub>RMS</sub></b>','(e) X<sub>L</sub> > X<sub>C</sub> → the circuit is inductive → the current <b>lags</b> the voltage.']))}
+<h3>Question 4: Amplifier (20)</h3>
+${ppItem('8 V; R1 = 3.7 kΩ, R2 = 1 kΩ, R<sub>C</sub> = 1.5 kΩ, R<sub>E</sub> = 300 Ω, β = 150.',steps(['(a) <b>Stabilised common-emitter amplifier</b>','(b) V<sub>B</sub> = 8 × 1/4.7 = 1.70 V → V<sub>E</sub> = 1.00 V → I<sub>E</sub> = 1.00/300 = 3.34 mA ≈ I<sub>C</sub> → V<sub>out</sub> = 8 − 3.34 m × 1500 = <b>2.99 V</b>','(c) Gain = −R<sub>C</sub>/R<sub>E</sub> = <b>−5</b>','(d) Max: transistor off → 8 V. Min: saturated, I<sub>C</sub> = 7.8/1800 = 4.33 mA → V<sub>E</sub> = 1.3 V → V<sub>out</sub> ≈ 1.3 + 0.2 = 1.5 V. Range ≈ <b>1.5 V to 8 V</b>. (So the quiescent point of 2.99 V is badly centred. Don’t assume an exam amplifier is well designed!)']))}
+<h3>Question 5: Op-amp (13)</h3>
+${ppItem('V<sub>in</sub> to the + input; 10 kΩ from the output to −; 10 kΩ from − to 0 V; ±9 V supplies. The input starts at 6 V, dips to −4 V, peaks at +2 V.',steps(['(a) <b>Negative feedback</b> (output to the inverting input)','(b) <b>Non-inverting amplifier</b>','(c) Gain = 1 + 10k/10k = <b>2</b>','(d) Output = 2 × input, clipped at ±9 V: it starts at +12 → <b>flat at +9 V</b> until the input drops below 4.5 V, then crosses zero with the input, dips to <b>−8 V</b> and rises to <b>+4 V</b>. Same shape as the input, doubled, with the top cut off at 9 V.']))}
+<h3>Question 6: Logic (16)</h3>
+${ppItem('(a) SOP for 001→1, 100→1, 110→1',`<b>Q = ${o('A')}·${o('B')}·C + A·${o('B')}·${o('C')} + A·B·${o('C')}</b>`)}
+${ppItem('(b) Simplify Y = '+o('A·C')+'·B + A·C',`Let X = A·C: Y = ${o('X')}B + X = B + X → <b>Y = B + A·C</b> (identity X + ${o('X')}B = X + B).`)}
+${ppItem('(c) Draw X = '+o('(A ⊕ C)')+' + A·C','Feed A and C into an <b>XNOR</b> gate (or an XOR followed by a NOT), feed A and C into an <b>AND</b> gate, then OR the two outputs. Unsimplified means: draw every gate as written.')}
+<h3>Question 7: Numbers (14)</h3>
+${ppItem('A = 101, B = 105, C = 32',steps(['(a) BCD: <b>0001 0000 0001</b>','(b) 105 = <b>0110 1001</b>','(c) 32 = 0010 0000 → invert 1101 1111 → +1 = <b>1110 0000</b>','(d) 0110 1001 + 1110 0000 = 1 0100 1001 → drop the carry → <b>0100 1001</b> = 73 = 105 − 32 ✓']))}
+<h3>Question 8: 2-bit flash ADC (13)</h3>
+${ppItem('Design: 5 V supply, input 0–5 V; give the logic for 2<sup>0</sup> and 2<sup>1</sup>.',steps(['4 equal resistors (e.g. 1 kΩ) from 5 V to 0 V → taps at 3.75 V, 2.5 V, 1.25 V.','3 comparators: A (3.75 V), B (2.5 V), C (1.25 V). V<sub>in</sub> to each + input, tap to each − input. Outputs go to the logic block.','Truth: V<sub>in</sub> < 1.25 → ABC = 000 → 00; 1.25–2.5 → 001 → 01; 2.5–3.75 → 011 → 10; > 3.75 → 111 → 11.','<b>2<sup>1</sup> = B</b>; <b>2<sup>0</sup> = A + C·'+o('B')+'</b>']))}
+<h3>Question 9: R-2R DAC (13)</h3>
+${ppItem('5 V, R = 10 kΩ, 2R = 20 kΩ, R<sub>f</sub> = 4 kΩ, 4 bits.',steps(['(a) Read the switch positions on the paper: a switch thrown to the op-amp side = 1, to the 0 V side = 0 (top = MSB).','The ladder draws I = 5/10k = 0.5 mA. Branch currents: MSB 0.25 mA, 0.125, 0.0625, LSB 0.03125 mA.','(b) 0001 → V = −4k × 0.03125 mA = <b>−0.125 V</b>','(c) FSD (1111) = −4k × 0.46875 mA = <b>−1.875 V</b>']))}
+</div>
+<div class="card"><h2>November 2016</h2><h3>Question 1: MCQ</h3>
+${ppItem('(a) 1.20 kΩ 1%','<b>Brown Red Black Brown Brown</b> (1, 2, 0 × 10 = 1200 Ω, 1%).')}
+${ppItem('(b) 1 kΩ in series with (1 kΩ ∥ 1 kΩ) and a 5.6 kΩ that is bypassed by a wire','The 5.6 kΩ is shorted out (check the paper). R = 1 + 0.5 = <b>1.5 kΩ</b>.')}
+${ppItem('(d) The I/V graph (V dotted, lagging I)','<b>Capacitor</b>.')}
+${ppItem('(f) 7 V → 10 kΩ pot → 1 kΩ → 0 V; output at the wiper','Bottom: 7 × 1/11 = 0.64 V; top: 7 V → <b>0.64 V to 7 V</b>.')}
+${ppItem('(g) When saturating, which is correct?','<b>I<sub>E</sub> = I<sub>C</sub> + I<sub>B</sub></b> (KCL is always true; I<sub>C</sub> = βI<sub>B</sub> fails in saturation).')}
+${ppItem('(h) 5 V → 1 kΩ → 1 kΩ pot → 0 V, wiper output: minimum','<b>0 V</b>.')}
+${ppItem('(i) 1.5 V cell, r = 10 Ω, 20 Ω load','1.5 × 20/30 = <b>1 V</b>.')}
+${ppItem('(j) Source Z<sub>out</sub> = 4 kΩ; Z<sub>in</sub> for the highest voltage','<b>As large as possible</b>.')}
+${ppItem('(k) HP filter gain at f<sub>c</sub>','<b>0.707</b>.')}
+${ppItem('(l) Current I into the + input of a non-inverting amp (2 V in, 4.7 k/1 k)','<b>0 mA</b>. An ideal op-amp input draws no current.')}
+${ppItem('(m) Bridge 9k/1k both sides','<b>0 V</b>.')}
+${ppItem('(n) Truth table 11→0, 10→0, 00→0, 01→1','<b>Not a base logic gate</b>.')}
+${ppItem('(p) Ripple counter LSB','<b>Flip-flop A</b>, the one clocked directly by the 1 Hz clock.')}
+${ppItem('(q) Counter modulo (the same reset logic as 2018)','<b>Modulo 10</b>.')}
+${ppItem('(r) Two inverters with R and C feedback','<b>Astable</b> (an oscillator).')}
+${ppItem('(s) Resistor chain from 4 V to 0 V feeding 4 comparators + decoding logic','<b>Flash ADC</b>.')}
+${ppItem('(t) Odd parity','<b>The number of 1’s in one byte must be odd</b>.')}
+${ppItem('(c), (e), (o)','See the paper (diagram-dependent). (e): diodes whose cathode is more positive than their anode are reverse-biased. (o): the output changes only at clock edges. Check whether it copies an input (D), sets/resets (SR), or toggles (JK/T).')}
+<h3>Question 2 (10)</h3>
+${ppItem('5 V → Si diode → (300 Ω ∥ 200 Ω) → 0 V',steps(['(a) <b>0.7 V</b>','(b) V = 4.3 V → I<sub>300</sub> = <b>14.3 mA</b>','(c) I<sub>200</sub> = 4.3/200 = <b>21.5 mA</b>','(d) I<sub>D</sub> = 35.8 mA → P = 0.7 × 35.8 m = <b>25.1 mW</b>']))}
+<h3>Question 3 (15)</h3>
+${ppItem('1.5 kΩ + 0.2 µF series, 500 Hz; V<sub>C</sub> = 1 V<sub>RMS</sub>',steps(['(a) X<sub>C</sub> = 1/(2π·500·0.2 µ) = <b>1592 Ω</b>','(b) |Z| = √(1500² + 1592²) = <b>2187 Ω</b>','(c) I = 1/1592 = <b>0.628 mA</b>','(d) V<sub>R</sub> = 0.628 m × 1500 = <b>0.942 V</b>','(e) V = √(0.942² + 1²) = <b>1.37 V<sub>RMS</sub></b> (= I|Z|)']))}
+<h3>Question 4 (15)</h3>
+${ppItem('5 V; 10 kΩ to the base, 1 kΩ to the collector, emitter grounded, β = 100',steps(['(a) I<sub>B</sub> = (5 − 0.7)/10k = <b>0.43 mA</b>','(b) Assume active: I<sub>C</sub> = 43 mA → V<sub>CE</sub> = 5 − 43 = −38 V. Impossible → <b>saturating</b>','(c) I<sub>C</sub> = (5 − 0.2)/1k = <b>4.8 mA</b> (about 5 mA if you take V<sub>CE</sub> ≈ 0)','(d) P = 0.2 × 4.8 m + 0.7 × 0.43 m ≈ <b>1.26 mW</b>']))}
+<h3>Question 5: Design (17)</h3>
+${ppItem('Stabilised CE: gain −10, 12 V, β = 120, I<sub>C</sub> = 10 mA',steps(['Sacrifice 1 V for R<sub>E</sub> → (12 − 1)/2 = 5.5 V across R<sub>C</sub> → V<sub>out,Q</sub> = 6.5 V','R<sub>C</sub> = 5.5/0.01 = <b>550 Ω</b>','R<sub>E</sub> = R<sub>C</sub>/10 = <b>55 Ω</b>','V<sub>E</sub> = 0.01 × 55 = 0.55 V → V<sub>B</sub> = 1.25 V','R2 = 1000 Ω: 1.25 = 12 × 1000/(R1 + 1000) → <b>R1 = 8600 Ω</b>','Draw: V<sub>in</sub> –||– base; R1 from 12 V to the base; R2 from the base to 0 V; R<sub>C</sub> from 12 V to the collector = V<sub>out</sub>; R<sub>E</sub> from the emitter to 0 V. Label the input and output!']))}
+<h3>Question 6 (13)</h3>
+${ppItem('The same non-inverting amp (gain 2, ±9 V); the input starts at 6 V, dips to about −3 V, peaks at +2 V','Negative feedback; non-inverting amplifier; gain 2. Output: clipped flat at <b>+9 V</b> at the start, then about <b>−6 V</b> at the dip and <b>+4 V</b> at the peak.')}
+<h3>Questions 7 & 8</h3>
+${ppItem('Identical to 2018 Q6 and Q7','See the 2018 memos above (SOP, Y = B + A·C, XNOR + AND into an OR; 0001 0000 0001; 0110 1001; 1110 0000; 0100 1001).')}
+<h3>Question 9 (17)</h3>
+${ppItem('The same R-2R circuit (5 V, 10k/20k, R<sub>f</sub> = 4 kΩ)',steps(['(a) <b>A digital-to-analogue converter</b> (R-2R ladder DAC)','(b) Read the switches from the diagram (top = MSB)','(c) 0100 → the 2<sup>2</sup> branch carries 0.125 mA → V = −4k × 0.125 mA = <b>−0.5 V</b>','(d) FSD = <b>−1.875 V</b>']))}
+</div>`;
+
+/* ===================== FORMULA SHEET ===================== */
+document.getElementById('fBody').innerHTML=`
+<div class="grid2">
+<div class="card"><h2>Exam formula sheet</h2><table class="formula">
+<tr><td>Capacitor / inductor</td><td>V = Q/C &nbsp;&nbsp; V = L·dI/dt</td></tr>
+<tr><td>Resistance</td><td>R = ρL/A</td></tr>
+<tr><td>Power</td><td>P = VI = I²R = V²/R</td></tr>
+<tr><td>Capacitance</td><td>Q = CV &nbsp;&nbsp; C = κε<sub>0</sub>A/d</td></tr>
+<tr><td>Time constant</td><td>τ = RC &nbsp;&nbsp; τ = L/R</td></tr>
+<tr><td>Half-life</td><td>t<sub>½</sub> = 0.693RC</td></tr>
+<tr><td>Energy</td><td>E = ½CV² &nbsp;&nbsp; E = ½LI²</td></tr>
+<tr><td>Growth</td><td>V = V<sub>0</sub>(1 − e<sup>−t/τ</sup>) &nbsp; I = I<sub>0</sub>(1 − e<sup>−t/τ</sup>)</td></tr>
+<tr><td>Decay</td><td>V = V<sub>0</sub>e<sup>−t/τ</sup> &nbsp; I = I<sub>0</sub>e<sup>−t/τ</sup></td></tr>
+<tr><td>Reactance</td><td>X<sub>C</sub> = 1/(2πfC) &nbsp;&nbsp; X<sub>L</sub> = 2πfL</td></tr>
+<tr><td>Resonance</td><td>f<sub>0</sub> = 1/(2π√(LC))</td></tr>
+<tr><td>Impedance</td><td>|Z| = √(R² + (X<sub>L</sub> − X<sub>C</sub>)²)</td></tr>
+<tr><td>555 monostable</td><td>T = 1.1RC</td></tr>
+<tr><td>555 astable</td><td>t<sub>high</sub> = 0.69(R1 + R2)C &nbsp; t<sub>low</sub> = 0.69R2C</td></tr>
+</table>
+<h3>Resistor colour code</h3>
+<table class="tt"><tr><th>Colour</th><th>Digit</th><th>Mult.</th><th>Tol.</th></tr>
+${['Black','Brown','Red','Orange','Yellow','Green','Blue','Violet','Grey','White'].map((c,i)=>`<tr><td>${c}</td><td>${i}</td><td>10<sup>${i}</sup></td><td>${i===1?'1%':i===2?'2%':''}</td></tr>`).join('')}
+<tr><td>Gold</td><td></td><td>10<sup>−1</sup></td><td>5%</td></tr><tr><td>Silver</td><td></td><td>10<sup>−2</sup></td><td>10%</td></tr></table>
+<p class="small">Mnemonic: <b>B</b>ad <b>B</b>eer <b>R</b>ots <b>O</b>ur <b>Y</b>oung <b>G</b>uts <b>B</b>ut <b>V</b>odka <b>G</b>oes <b>W</b>ell.</p></div>
+<div class="card"><h2>Formulas NOT on the sheet (learn these!)</h2><table class="formula">
+<tr><td>Series R</td><td>R = R1 + R2 + …</td></tr>
+<tr><td>Parallel R</td><td>1/R = 1/R1 + 1/R2 (two: R1R2/(R1+R2))</td></tr>
+<tr><td>Series C</td><td>1/C = 1/C1 + 1/C2 (like parallel R)</td></tr>
+<tr><td>Parallel C</td><td>C = C1 + C2</td></tr>
+<tr><td>Potential divider</td><td>V<sub>out</sub> = V<sub>in</sub>·R2/(R1 + R2)</td></tr>
+<tr><td>Internal resistance</td><td>V = E − Ir</td></tr>
+<tr><td>RMS</td><td>V<sub>RMS</sub> = V<sub>p</sub>/√2, f = 1/T</td></tr>
+<tr><td>Phase</td><td>φ = (Δt/T) × 360°</td></tr>
+<tr><td>Filter corner</td><td>f<sub>c</sub> = 1/(2πRC) or R/(2πL); gain 0.707 (−3 dB)</td></tr>
+<tr><td>dB</td><td>Power 10 log(P<sub>o</sub>/P<sub>i</sub>); voltage 20 log(V<sub>o</sub>/V<sub>i</sub>)</td></tr>
+<tr><td>Transistor</td><td>I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub>; I<sub>C</sub> = βI<sub>B</sub> (not saturated)</td></tr>
+<tr><td>CE amp gain</td><td>−βR<sub>C</sub>/R<sub>B</sub></td></tr>
+<tr><td>Stabilised CE gain</td><td>−R<sub>C</sub>/R<sub>E</sub></td></tr>
+<tr><td>Emitter follower</td><td>gain 1; V<sub>out</sub> = V<sub>B</sub> − 0.7</td></tr>
+<tr><td>Inverting op-amp</td><td>A = −R<sub>f</sub>/R<sub>in</sub>; Z<sub>in</sub> = R<sub>in</sub></td></tr>
+<tr><td>Non-inverting</td><td>A = 1 + R<sub>f</sub>/R<sub>2</sub>; Z<sub>in</sub> = ∞</td></tr>
+<tr><td>Difference amp</td><td>V<sub>out</sub> = (R2/R1)(V<sub>2</sub> − V<sub>1</sub>)</td></tr>
+<tr><td>Schmitt trigger</td><td>V<sub>UTP/LTP</sub> = ±V<sub>sat</sub>·R2/(R1 + R2)</td></tr>
+<tr><td>Weighted DAC</td><td>V<sub>out</sub> = −R<sub>f</sub>(V<sub>1</sub>/R + V<sub>2</sub>/2R + V<sub>3</sub>/4R + V<sub>4</sub>/8R)</td></tr>
+<tr><td>R-2R DAC</td><td>I = V<sub>ref</sub>/R; branches I/2, I/4, I/8, I/16; V<sub>out</sub> = −R<sub>f</sub>ΣI</td></tr>
+<tr><td>Flash ADC</td><td>2<sup>n</sup> − 1 comparators, 2<sup>n</sup> resistors</td></tr>
+<tr><td>Counter</td><td>n flip-flops → mod 2<sup>n</sup>; f<sub>max</sub> = 1/(n·t<sub>pd</sub>)</td></tr>
+<tr><td>Baud</td><td>bit time = 1/baud</td></tr>
+</table></div></div>
+<div class="card"><h2>Course conventions and exam rules of thumb</h2>
+<div class="note"><b>Use these values unless the question says otherwise.</b> Si diode 0.7 V · Ge diode 0.2 V · LED 2.0 V · V<sub>BE</sub> = 0.7 V · saturation when V<sub>CE</sub> &lt; 0.2 V (then V<sub>CE</sub> ≈ 0.2 V) · op-amp output clips at the supply rails · R2 = 1000 Ω in divider designs · TTL LOW &lt; 0.8 V, HIGH &gt; 2.4 V · RS232: 1 = −3…−12 V, 0 = +3…+12 V, LSB first.</div>
+<h3>Analyse any transistor circuit</h3>${steps(['Input loop → I<sub>B</sub> (or V<sub>B</sub> → V<sub>E</sub> = V<sub>B</sub> − 0.7 → I<sub>E</sub> for a stabilised amp).','Assume NOT saturated: I<sub>C</sub> = βI<sub>B</sub>.','Output loop: V<sub>CE</sub> = V<sub>CC</sub> − I<sub>C</sub>R<sub>C</sub> (− I<sub>E</sub>R<sub>E</sub>).','If V<sub>CE</sub> &lt; 0.2 V → saturated: recompute I<sub>C</sub> with V<sub>CE</sub> = 0.2 V.','Never assume an exam amplifier is well designed.'])}
+<h3>Design a stabilised CE amplifier</h3>${steps(['V<sub>RC</sub> = (V<sub>CC</sub> − 1)/2 → V<sub>out,Q</sub> = V<sub>CC</sub> − V<sub>RC</sub>','R<sub>C</sub> = V<sub>RC</sub>/I<sub>C</sub>','R<sub>E</sub> = R<sub>C</sub>/|gain|','V<sub>E</sub> = I<sub>C</sub>R<sub>E</sub> (recalculate!) → V<sub>B</sub> = V<sub>E</sub> + 0.7','R2 = 1000 Ω → R1 = V<sub>CC</sub>·1000/V<sub>B</sub> − 1000','Draw it with values and label V<sub>in</sub> (via a capacitor) and V<sub>out</sub>.'])}
+<h3>Design a CE amplifier</h3>${steps(['V<sub>out,Q</sub> = V<sub>CC</sub>/2 → R<sub>C</sub> = (V<sub>CC</sub>/2)/I<sub>C</sub>','R<sub>B</sub> = βR<sub>C</sub>/|gain|','I<sub>B</sub> = I<sub>C</sub>/β → V<sub>pd</sub> = I<sub>B</sub>R<sub>B</sub> + 0.7','R2 = 1000 Ω → solve for R1.'])}
+<h3>Op-amp output sketches</h3>${steps(['Identify the feedback (output → − input = negative).','Find the gain (inverting: −R<sub>f</sub>/R<sub>in</sub>, non-inverting: 1 + R<sub>f</sub>/R<sub>2</sub>).','Multiply key points of the input (peaks, zero crossings) by the gain.','Flatten anything beyond the rails. Zero crossings stay at the same times. An inverting amp flips the waveform.'])}
+<h3>Diodes in circuits</h3>${steps(['Decide bias first: anode more positive than cathode → ON (0.7 V / LED 2.0 V); otherwise it is an open circuit.','A conducting diode in parallel with a resistor fixes that resistor’s voltage.','Then use KVL for the series current and KCL to split it.'])}
+<h3>Phase memory aid</h3><p><b>CIVIL</b>: in a <b>C</b>, <b>I</b> leads <b>V</b>; <b>V</b> leads <b>I</b> in an <b>L</b>. (Or ELI the ICE man.)</p>
+</div>`;
+
+/* ===================== PROGRESS ===================== */
+function renderProg(){const rows=Object.keys(TOPICS).map(t=>{const s=stats[t]||{a:0,c:0};return[t,s.a,s.c,s.a?s.c/s.a:null]});
+ const ta=rows.reduce((a,r)=>a+r[1],0),tc=rows.reduce((a,r)=>a+r[2],0);
+ const weak=rows.filter(r=>r[1]>=3).sort((a,b)=>a[3]-b[3]).slice(0,3);const untouched=rows.filter(r=>r[1]===0);
+ document.getElementById('progBody').innerHTML=`<div class="card"><h2>My progress</h2><div class="row" style="gap:40px"><div><div class="stat">${ta}</div><div class="statl">parts attempted</div></div><div><div class="stat">${ta?Math.round(100*tc/ta):0}%</div><div class="statl">overall accuracy</div></div><div><div class="stat">${Object.keys(TOPICS).length-untouched.length}/${Object.keys(TOPICS).length}</div><div class="statl">topics practised</div></div></div>
+ <p class="small">Aim for <b>at least 20 parts per topic at 85%+</b> before the exam. Saved in this browser.</p>
+ <table class="formula" style="width:100%">${rows.map(([t,a,c,p])=>`<tr><td>${TOPICS[t]}</td><td style="width:90px">${c}/${a}</td><td><div class="bar"><div style="width:${p===null?0:100*p}%;background:${p===null?'#ccc':p>=0.85?'var(--ok)':p>=0.6?'var(--acc)':'var(--bad)'}"></div></div></td><td style="width:60px">${p===null?'–':Math.round(100*p)+'%'}</td><td><button class="btn sec" style="padding:4px 10px;font-size:12px" onclick="drill('${t}')">Drill</button></td></tr>`).join('')}</table>
+ ${weak.length?`<p><b>Focus next on:</b> ${weak.map(w=>TOPICS[w[0]]).join(', ')}.</p>`:''}${untouched.length?`<p class="small">Not practised yet: ${untouched.map(u=>TOPICS[u[0]]).join(', ')}</p>`:''}
+ <button class="btn ghost" onclick="if(confirm('Reset all progress?')){localStorage.removeItem('${SK}');location.reload()}">Reset progress</button></div>`}
+function drill(t){selTopics.clear();selTopics.add(t);syncChips();show('practice');nextQ()}
+
+/* ===================== NAV ===================== */
+function show(t){document.querySelectorAll('.tab').forEach(s=>s.classList.toggle('on',s.id===t));document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));if(t==='progress')renderProg();window.scrollTo(0,0)}
+document.getElementById('nav').onclick=e=>{const b=e.target.closest('button');if(b)show(b.dataset.t)};
+nextQ();
+</script>
+</body>
+</html>
